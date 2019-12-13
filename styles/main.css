@@ -1,0 +1,70 @@
+@font-face {
+  font-family: AvenirBlack;
+  src: url(../fonts/AvenirLTStd-Black.otf); }
+@font-face {
+  font-family: AvenirBook;
+  src: url(../fonts/AvenirLTStd-Book.otf); }
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #202636;
+  background: radial-gradient(circle, #6a6e78 0%, #202636 100%);
+  padding: 0;
+  margin: 0; }
+
+.landing {
+  height: 100vh;
+  background-image: url(../images/vagues.png);
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat; }
+  .landing nav {
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between; }
+    .landing nav h2 {
+      font-family: AvenirBook; }
+    .landing nav img {
+      width: 30px; }
+  .landing header {
+    height: calc(45vh + 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; }
+    .landing header #karma-logo {
+      width: 50px; }
+    .landing header h1 {
+      font-family: AvenirBlack;
+      text-transform: uppercase;
+      color: white;
+      letter-spacing: 10px;
+      font-size: 9vw; }
+    .landing header #slogan {
+      color: white;
+      text-transform: uppercase;
+      font-family: AvenirBook;
+      text-align: center;
+      font-size: 2vh; }
+    .landing header #start-btn {
+      margin-top: 50px; }
+      .landing header #start-btn img {
+        width: 100px;
+        animation-name: highlight;
+        animation-duration: 6s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite; }
+
+@keyframes highlight {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.3);
+    filter: drop-shadow(0px 0px 20px white); }
+  100% {
+    transform: scale(1); } }
+
+/*# sourceMappingURL=main.css.map */

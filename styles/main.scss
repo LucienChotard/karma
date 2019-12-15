@@ -15,39 +15,33 @@ body{
   height: 100vh;
   background-color: #202636;
   background: linear-gradient(156deg, rgba(32,38,54,1) 0%, rgba(32,38,54,1) 50%, rgba(104,108,117,1) 100%);
-
-
-  padding: 0;
   margin: 0;
 }
-
-.landing{
+#landing{
   #wave{
     z-index: 1;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom : -10px;
-  
-    animation: mover 1s infinite alternate;
   }
-  @keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-  }
-
   #back-wave{
     z-index: 0;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom : 0;
-
+  }
+  .wave-move{
+    animation: mover 1s infinite alternate;
+  }
+  .back-wave-move{
     animation: moverBis 1s infinite alternate;
   }
-  @keyframes moverBis {
-    0% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+  .wave-slide-out{
+    animation-name: slideOut !important;
+    animation-duration: 3s !important;
+    animation-fill-mode: both;
   }
   nav{
     padding: 20px 30px;
@@ -98,6 +92,12 @@ body{
   }
 }
 
+.fade-out{
+  animation-name: fadeOut;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
 @keyframes highlight{
   0%{
     transform: scale(1);
@@ -109,4 +109,24 @@ body{
   100%{
     transform: scale(1);
   }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes moverBis {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes slideOut {
+  from{
+    transform: translateY(0px);
+  }
+  to{
+    transform: translateY(300px);
+  }
+}
+@keyframes fadeOut{
+  from{opacity: 1;}
+  to{opacity: 0;}
 }

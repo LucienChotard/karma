@@ -9,54 +9,75 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0; }
 
 body {
+  width: 100vw;
+  height: 100vh;
   background-color: #202636;
-  background: radial-gradient(circle, #6a6e78 0%, #202636 100%);
-  padding: 0;
+  background: linear-gradient(156deg, #202636 0%, #202636 50%, #686c75 100%);
   margin: 0; }
 
-.landing {
-  height: 100vh;
-  background-image: url(../images/vagues.png);
-  background-size: contain;
-  background-position: bottom;
-  background-repeat: no-repeat; }
-  .landing nav {
-    padding: 10px;
+#landing #wave {
+  z-index: 1;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: -10px; }
+#landing #back-wave {
+  z-index: 0;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0; }
+#landing .wave-move {
+  animation: mover 1s infinite alternate; }
+#landing .back-wave-move {
+  animation: moverBis 1s infinite alternate; }
+#landing .wave-slide-out {
+  animation-name: slideOut !important;
+  animation-duration: 3s !important;
+  animation-fill-mode: both; }
+#landing nav {
+  padding: 20px 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between; }
+  #landing nav #prod {
+    width: 90px;
+    height: 100%; }
+  #landing nav img {
+    width: 25px; }
+#landing header {
+  height: calc(45vh + 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; }
+  #landing header #karma-logo {
+    width: 50px; }
+  #landing header h1 {
+    font-family: AvenirBlack;
+    text-transform: uppercase;
     color: white;
-    display: flex;
-    justify-content: space-between; }
-    .landing nav h2 {
-      font-family: AvenirBook; }
-    .landing nav img {
-      width: 30px; }
-  .landing header {
-    height: calc(45vh + 100px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end; }
-    .landing header #karma-logo {
-      width: 50px; }
-    .landing header h1 {
-      font-family: AvenirBlack;
-      text-transform: uppercase;
-      color: white;
-      letter-spacing: 10px;
-      font-size: 9vw; }
-    .landing header #slogan {
-      color: white;
-      text-transform: uppercase;
-      font-family: AvenirBook;
-      text-align: center;
-      font-size: 2vh; }
-    .landing header #start-btn {
-      margin-top: 50px; }
-      .landing header #start-btn img {
-        width: 100px;
-        animation-name: highlight;
-        animation-duration: 6s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite; }
+    letter-spacing: 20px;
+    font-size: 6vw; }
+  #landing header #slogan {
+    color: white;
+    text-transform: uppercase;
+    font-family: AvenirBook;
+    text-align: center;
+    font-size: 2vh; }
+  #landing header #start-btn {
+    margin-top: 50px; }
+    #landing header #start-btn img {
+      width: 100px;
+      animation-name: highlight;
+      animation-duration: 6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite; }
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 2s;
+  animation-fill-mode: both; }
 
 @keyframes highlight {
   0% {
@@ -66,5 +87,25 @@ body {
     filter: drop-shadow(0px 0px 20px white); }
   100% {
     transform: scale(1); } }
+@keyframes mover {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-10px); } }
+@keyframes moverBis {
+  0% {
+    transform: translateY(-10px); }
+  100% {
+    transform: translateY(0); } }
+@keyframes slideOut {
+  from {
+    transform: translateY(0px); }
+  to {
+    transform: translateY(300px); } }
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 
 /*# sourceMappingURL=main.css.map */

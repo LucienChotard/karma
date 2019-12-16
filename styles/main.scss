@@ -114,6 +114,19 @@ body{
   #vid-rewind{
     z-index: 1;
   }
+  #view-btn-wrapper{
+    position: fixed;
+    z-index: 5;
+    background: rgba(0,0,0,0.8);
+    border-radius: 100%;
+    padding: 15px;
+    left:50%;
+    margin-left: -15px;
+    bottom: 200px;
+    img{
+      width:30px;
+    }
+  }
   nav{
     font-family: AvenirBook;
     color:white;
@@ -132,6 +145,9 @@ body{
         text-align: center;
         margin-bottom: 20px;
         margin-right: 10px;
+      }
+      #play-btn{
+        margin-top: 3px;
       }
     }
     .progress-wrapper{
@@ -156,7 +172,7 @@ body{
       progress::-webkit-progress-value {
       	border-radius: 50px;
       	box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-      	background:linear-gradient(45deg, #d766ff, #55cfff);
+      	background:#222D4A;
       	-webkit-animation: move 5s linear 0 infinite;
       }
     }
@@ -209,4 +225,8 @@ body{
 @keyframes fadeIn{
   from{opacity: 0;}
   to{opacity: 1;}
+}
+
+.none{
+  display: none;
 }

@@ -4,19 +4,31 @@ const wave = document.querySelector('#wave')
 const backWave = document.querySelector('#back-wave')
 const player = document.querySelector('#player')
 const playBtn = document.querySelector('#play-btn')
+const changeViewBtn = document.querySelector('#change-view')
 
 class Video {
   constructor(videoId,progressId){
     this.video = document.querySelector(videoId)
     this.progress = document.querySelector(progressId)
   }
+  progressInit(){
+    this.progress.setAttribute('max',this.video.duration)
+  }
 }
 let vidCity = new Video('#vid-city',"#progress-city")
 let vidOcean = new Video('#vid-ocean',"#progress-ocean")
 let vidRewind = new Video('#vid-rewind',"#progress-rewind")
-
 let globalVid = [vidCity,vidOcean,vidRewind]
 
+changeViewBtn.addEventListener('click',(e)=>{
+  if(vidCity.video.classList.contains('none')){
+    changeViewBtn.setAttribute('src','images/wave.svg')
+  }
+  else{
+    changeViewBtn.setAttribute('src','images/cityscape.svg')
+  }
+  vidCity.video.classList.toggle('none')
+})
 
 startBtn.addEventListener('click',(e)=>{
   wave.classList.remove('wave-move')
@@ -32,6 +44,8 @@ startBtn.addEventListener('click',(e)=>{
     player.style.opacity="0"
     player.classList.add('fade-in')
     playAll()
+    vidOcean.video.muted=true
+    vidRewind.video.muted=true
   }, 2500);
 })
 
@@ -61,12 +75,12 @@ function pauseAll(){
 }
 
 function seekBarRefresh(){
-  for(i of globalVid){
-    i.progress.setAttribute("max",i.video.duration)
-    i.progress.setAttribute("value",i.video.currentTime)
-  }
+  vidCity.progress.setAttribute("value",vidCity.video.currentTime)
+  vidOcean.progress.setAttribute("value",vidCity.video.currentTime)
+  vidRewind.progress.setAttribute("value",vidCity.video.currentTime)
 }
 
 for(i of globalVid){
+  i.progress.setAttribute("max",131.136)
   i.video.addEventListener('timeupdate',seekBarRefresh)
 }

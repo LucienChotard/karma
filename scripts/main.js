@@ -31,7 +31,7 @@ startBtn.addEventListener('click',(e)=>{
     player.style.display="block"
     player.style.opacity="0"
     player.classList.add('fade-in')
-    vidCity.video.play()
+    playAll()
   }, 2500);
 })
 
@@ -58,4 +58,15 @@ function pauseAll(){
   }
   playBtn.classList.toggle("icofont-ui-pause")
   playBtn.classList.toggle("icofont-ui-play")
+}
+
+function seekBarRefresh(){
+  for(i of globalVid){
+    i.progress.setAttribute("max",i.video.duration)
+    i.progress.setAttribute("value",i.video.currentTime)
+  }
+}
+
+for(i of globalVid){
+  i.video.addEventListener('timeupdate',seekBarRefresh)
 }

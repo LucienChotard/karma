@@ -6,6 +6,8 @@ const player = document.querySelector('#player')
 const playBtn = document.querySelector('#play-btn')
 const changeViewWrapper = document.querySelector('#change-view-wrapper')
 const changeViewBtn = document.querySelector('#change-view')
+const rewindModal = document.querySelector('#rewind-modal')
+const rewindBtn = document.querySelector('#rewind-btn')
 let callOnce = true
 
 class Video {
@@ -101,25 +103,41 @@ function seekBarRefresh(){
     changeViewWrapper.classList.add('none')
   }
 
-  if(vidCity.video.currentTime > 16 && vidCity.video.currentTime < 16.2 && !vidCity.video.classList.contains('none')){
+  if(vidCity.video.currentTime > 16 && vidCity.video.currentTime < 16.4 && !vidCity.video.classList.contains('none')){
     if(callOnce){
       callOnce = false
       changeView()
     }
   }
-  if(vidCity.video.currentTime > 90 && vidCity.video.currentTime < 90.2 && vidCity.video.classList.contains('none')){
+  if(vidCity.video.currentTime > 91 && vidCity.video.currentTime < 92 && vidCity.video.classList.contains('none')){
     if(callOnce){
       callOnce = false
       changeView()
     }
   }
-  if(vidCity.video.currentTime > 114 && vidCity.video.currentTime < 114.2 && !vidCity.video.classList.contains('none')){
+  if(vidCity.video.currentTime > 113 && vidCity.video.currentTime < 114 && !vidCity.video.classList.contains('none')){
     if(callOnce){
       callOnce = false
+      vidCity.video.classList.add('blur')
       pauseAll()
+      rewindModal.style.display="block"
+      rewindModal.classList.add("fade-in")
     }
   }
 }
+
+rewindBtn.addEventListener('click',(e)=>{
+  vidCity.video.classList.add('none')
+  vidOcean.video.classList.add('none')
+  playAll()
+  vidCity.video.muted = true
+  vidOcean.video.muted = true
+  vidRewind.video.muted= false
+  rewindModal.classList.remove("fade-in")
+  rewindModal.classList.add("fade-out")
+  vidCity.progress.style.removeProperty("--c")
+  vidRewind.progress.style.setProperty("--c", "#fcba03");
+})
 
 for(i of globalVid){
   i.progress.setAttribute("max",131.136)

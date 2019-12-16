@@ -122,6 +122,27 @@ body {
     bottom: 150px; }
     #player #change-view-wrapper img {
       width: 30px; }
+  #player #rewind-modal {
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    color: white;
+    text-align: center;
+    top: 40%;
+    font-family: AvenirBlack;
+    text-transform: uppercase;
+    display: none; }
+    #player #rewind-modal h2 {
+      margin-bottom: 20px; }
+    #player #rewind-modal #rewind-btn {
+      border: solid white 3px;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      animation-name: highlight;
+      animation-duration: 6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite; }
   #player nav {
     font-family: AvenirBook;
     color: white;
@@ -155,14 +176,14 @@ body {
         left: 11%; }
       #player nav .progress-wrapper #vid-city-hide-end {
         width: 15%;
-        left: 88%; }
+        left: 86%; }
       #player nav .progress-wrapper #vid-ocean-hide {
         width: 3%; }
       #player nav .progress-wrapper #vid-ocean-hide-end {
         left: 69%;
         width: 31%; }
       #player nav .progress-wrapper #vid-rewind-hide {
-        width: 88%; }
+        width: 86%; }
       #player nav .progress-wrapper h4 {
         width: 100px;
         padding: 5px; }
@@ -190,6 +211,11 @@ body {
 .fade-in {
   animation-name: fadeIn;
   animation-duration: 2s;
+  animation-fill-mode: both; }
+
+.blur {
+  animation-name: blur;
+  animation-duration: 0.4s;
   animation-fill-mode: both; }
 
 @keyframes highlight {
@@ -232,6 +258,11 @@ body {
     transform: translateX(150px); }
   100% {
     transform: translateX(0); } }
+@keyframes blur {
+  from {
+    filter: blur(0px); }
+  to {
+    filter: blur(15px); } }
 .none {
   display: none; }
 

@@ -37,8 +37,8 @@ changeViewBtn.addEventListener('click',(e)=>{
 startBtn.addEventListener('click',(e)=>{
   wave.classList.remove('wave-move')
   backWave.classList.remove('back-wave-move')
-  wave.classList.toggle('wave-slide-out')
-  backWave.classList.toggle('wave-slide-out')
+  wave.classList.add('wave-slide-out')
+  backWave.classList.add('wave-slide-out')
   setTimeout(function(){
     landing.classList.add('fade-out')
   }, 500);

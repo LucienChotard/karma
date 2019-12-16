@@ -1,6 +1,6 @@
 # Karma
 ## Karma is an awareness video for our ocean.
-[Link to Karma](https://github.com/LucienChotard/karma.git)
+[Link to Karma](https://lucienchotard.github.io/karma/)
 
 # Getting started
 Simply click on the fish to play the video.

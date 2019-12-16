@@ -29,30 +29,42 @@
     </header>
     <img id="wave" class="wave-move" src="images/vagues.png" alt="vague">
     <img id="back-wave" class="back-wave-move" src="images/vague-arrière.png" alt="vague">
+    <img src="images/nuage.png" class="cloud" id="cloud-left" alt="nuage">
+    <img src="images/nuage.png" class="cloud" id="cloud-right" alt="nuage">
     <p id="legal">Ce travail a été réalisé dans le cadre d’un projet pédagogique et à des fins pédagogiques. Les droits d’exploitation n’ont pas fait l’objet d’une vérification, ni d’une acquisition.</p>
   </section>
 
   <section id="player">
     <nav>
       <span>
-        <h3>Timeline</h3>
         <div id="play-btn" class="icofont-ui-play"></div>
       </span>
       <div class="progress-wrapper">
         <h4>City</h4>
-        <progress id="progress-city" min="0"></progress>
+        <div class="seekbar-wrapper">
+          <progress id="progress-city" min="0"></progress>
+          <div class="vid-hide" id="vid-city-hide"></div>
+          <div class="vid-hide" id="vid-city-hide-end"></div>
+        </div>
       </div>
       <div class="progress-wrapper">
         <h4>Ocean</h4>
-        <progress id="progress-ocean" min="0"></progress>
+        <div class="seekbar-wrapper">
+          <progress id="progress-ocean" min="0"></progress>
+          <div class="vid-hide" id="vid-ocean-hide"></div>
+          <div class="vid-hide" id="vid-ocean-hide-end"></div>
+        </div>
       </div>
       <div class="progress-wrapper">
         <h4>Rewind</h4>
-        <progress id="progress-rewind" min="0"></progress>
+        <div class="seekbar-wrapper">
+          <progress id="progress-rewind" min="0"></progress>
+          <div class="vid-hide" id="vid-rewind-hide"></div>
+        </div>
       </div>
     </nav>
 
-    <div id="view-btn-wrapper">
+    <div id="change-view-wrapper">
       <img id="change-view" src="images/wave.svg" alt="Change Camera">
     </div>
 

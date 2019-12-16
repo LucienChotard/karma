@@ -26,7 +26,8 @@ body {
   width: 100vw;
   position: fixed;
   left: 0;
-  bottom: 0; }
+  bottom: 0;
+  filter: blur(3px); }
 #landing .wave-move {
   animation: mover 1s infinite alternate; }
 #landing .back-wave-move {
@@ -35,6 +36,23 @@ body {
   animation-name: slideOut !important;
   animation-duration: 3s !important;
   animation-fill-mode: both; }
+#landing .cloud {
+  z-index: 0;
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  animation-name: cloud-move;
+  animation-duration: 20s;
+  animation-iteration-count: infinite; }
+#landing #cloud-left {
+  width: 30vw;
+  margin-top: 20vh;
+  filter: blur(10px); }
+#landing #cloud-right {
+  width: 20vw;
+  right: 50px;
+  margin-top: 40vh;
+  filter: blur(10px); }
 #landing nav {
   padding: 20px 30px;
   color: white;
@@ -69,7 +87,8 @@ body {
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite; }
 #landing #legal {
-  position: absolute;
+  position: fixed;
+  width: 100%;
   bottom: 0;
   margin: 5px 10px;
   color: white;
@@ -92,16 +111,16 @@ body {
     z-index: 2; }
   #player #vid-rewind {
     z-index: 1; }
-  #player #view-btn-wrapper {
+  #player #change-view-wrapper {
     position: fixed;
     z-index: 5;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 100%;
     padding: 15px;
     left: 50%;
-    margin-left: -30px;
-    bottom: 200px; }
-    #player #view-btn-wrapper img {
+    margin-left: -17px;
+    bottom: 150px; }
+    #player #change-view-wrapper img {
       width: 30px; }
   #player nav {
     font-family: AvenirBook;
@@ -109,7 +128,7 @@ body {
     position: fixed;
     z-index: 4;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: black;
     display: flex;
     flex-direction: column;
     bottom: 0;
@@ -126,24 +145,42 @@ body {
     #player nav .progress-wrapper {
       display: flex;
       justify-content: flex-start; }
+      #player nav .progress-wrapper .vid-hide {
+        position: absolute;
+        height: 14px;
+        background: black;
+        margin-top: 7px; }
+      #player nav .progress-wrapper #vid-city-hide {
+        width: 58%;
+        left: 11%; }
+      #player nav .progress-wrapper #vid-city-hide-end {
+        width: 15%;
+        left: 88%; }
+      #player nav .progress-wrapper #vid-ocean-hide {
+        width: 3%; }
+      #player nav .progress-wrapper #vid-ocean-hide-end {
+        left: 69%;
+        width: 31%; }
+      #player nav .progress-wrapper #vid-rewind-hide {
+        width: 88%; }
       #player nav .progress-wrapper h4 {
         width: 100px;
         padding: 5px; }
-      #player nav .progress-wrapper progress {
-        width: calc(100% - 200px);
-        height: 12px;
-        margin-top: 7.5px;
-        -webkit-appearance: none;
-        border: none; }
-      #player nav .progress-wrapper progress::-webkit-progress-bar {
-        background: white;
-        border-radius: 50px;
-        padding: 2px; }
-      #player nav .progress-wrapper progress::-webkit-progress-value {
-        border-radius: 50px;
-        box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-        background: #222D4A;
-        -webkit-animation: move 5s linear 0 infinite; }
+      #player nav .progress-wrapper .seekbar-wrapper {
+        position: relative;
+        display: flex; }
+        #player nav .progress-wrapper .seekbar-wrapper progress {
+          width: 90vw;
+          height: 12px;
+          margin-top: 7.5px;
+          -webkit-appearance: none;
+          border: none; }
+        #player nav .progress-wrapper .seekbar-wrapper progress::-webkit-progress-bar {
+          background: white; }
+        #player nav .progress-wrapper .seekbar-wrapper progress::-webkit-progress-value {
+          box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+          background: var(--c, white);
+          -webkit-animation: move 5s linear 0 infinite; }
 
 .fade-out {
   animation-name: fadeOut;
@@ -188,6 +225,13 @@ body {
     opacity: 0; }
   to {
     opacity: 1; } }
+@keyframes cloud-move {
+  0% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(150px); }
+  100% {
+    transform: translateX(0); } }
 .none {
   display: none; }
 

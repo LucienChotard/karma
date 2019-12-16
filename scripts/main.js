@@ -4,7 +4,9 @@ const wave = document.querySelector('#wave')
 const backWave = document.querySelector('#back-wave')
 const player = document.querySelector('#player')
 const playBtn = document.querySelector('#play-btn')
+const changeViewWrapper = document.querySelector('#change-view-wrapper')
 const changeViewBtn = document.querySelector('#change-view')
+let callOnce = true
 
 class Video {
   constructor(videoId,progressId){
@@ -20,19 +22,26 @@ let vidOcean = new Video('#vid-ocean',"#progress-ocean")
 let vidRewind = new Video('#vid-rewind',"#progress-rewind")
 let globalVid = [vidCity,vidOcean,vidRewind]
 
-changeViewBtn.addEventListener('click',(e)=>{
+changeViewWrapper.addEventListener('click',changeView)
+
+function changeView(){
   if(vidCity.video.classList.contains('none')){
     vidCity.video.muted = false
     vidOcean.video.muted = true
     changeViewBtn.setAttribute('src','images/wave.svg')
+    vidCity.progress.style.setProperty("--c", "#fcba03");
+    vidOcean.progress.style.removeProperty("--c")
   }
   else{
     vidCity.video.muted = true
     vidOcean.video.muted = false
     changeViewBtn.setAttribute('src','images/cityscape.svg')
+    vidCity.progress.style.removeProperty("--c")
+    vidOcean.progress.style.setProperty("--c", "#fcba03");
   }
   vidCity.video.classList.toggle('none')
-})
+  callOnce = true
+}
 
 startBtn.addEventListener('click',(e)=>{
   wave.classList.remove('wave-move')
@@ -50,6 +59,8 @@ startBtn.addEventListener('click',(e)=>{
     playAll()
     vidOcean.video.muted=true
     vidRewind.video.muted=true
+    vidCity.progress.style.setProperty("--c", "#fcba03");
+    changeViewWrapper.classList.add('none')
   }, 2500);
 })
 
@@ -79,9 +90,35 @@ function pauseAll(){
 }
 
 function seekBarRefresh(){
+  console.log(vidCity.video.currentTime)
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidCity.video.currentTime)
   vidRewind.progress.setAttribute("value",vidCity.video.currentTime)
+  if(vidCity.video.currentTime > 4.3){
+    changeViewWrapper.classList.remove('none')
+  }
+  if(vidCity.video.currentTime > 16.4){
+    changeViewWrapper.classList.add('none')
+  }
+
+  if(vidCity.video.currentTime > 16 && vidCity.video.currentTime < 16.2 && !vidCity.video.classList.contains('none')){
+    if(callOnce){
+      callOnce = false
+      changeView()
+    }
+  }
+  if(vidCity.video.currentTime > 90 && vidCity.video.currentTime < 90.2 && vidCity.video.classList.contains('none')){
+    if(callOnce){
+      callOnce = false
+      changeView()
+    }
+  }
+  if(vidCity.video.currentTime > 114 && vidCity.video.currentTime < 114.2 && !vidCity.video.classList.contains('none')){
+    if(callOnce){
+      callOnce = false
+      pauseAll()
+    }
+  }
 }
 
 for(i of globalVid){

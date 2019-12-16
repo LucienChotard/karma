@@ -3,9 +3,9 @@
 [Link to Karma](https://github.com/LucienChotard/karma.git)
 
 # Getting started
-Simply click on the turtle to play the video.
+Simply click on the fish to play the video.
 
-<img src="images/turtle.svg" width="100px">
+<img src="images/fish.svg" width="100px">
 
 # An interactive video
 Two videos are playing :

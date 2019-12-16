@@ -22,9 +22,13 @@ let globalVid = [vidCity,vidOcean,vidRewind]
 
 changeViewBtn.addEventListener('click',(e)=>{
   if(vidCity.video.classList.contains('none')){
+    vidCity.video.muted = false
+    vidOcean.video.muted = true
     changeViewBtn.setAttribute('src','images/wave.svg')
   }
   else{
+    vidCity.video.muted = true
+    vidOcean.video.muted = false
     changeViewBtn.setAttribute('src','images/cityscape.svg')
   }
   vidCity.video.classList.toggle('none')

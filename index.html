@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Karma</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/icofont.min.css">
   <link rel="icon" type="image/png" href="images/recycle-sign.png" />
 </head>
 <body>
@@ -29,6 +30,31 @@
     <img id="wave" class="wave-move" src="images/vagues.png" alt="vague">
     <img id="back-wave" class="back-wave-move" src="images/vague-arrière.png" alt="vague">
     <p id="legal">Ce travail a été réalisé dans le cadre d’un projet pédagogique et à des fins pédagogiques. Les droits d’exploitation n’ont pas fait l’objet d’une vérification, ni d’une acquisition.</p>
+  </section>
+
+  <section id="player">
+    <nav>
+      <span>
+        <h3>Timeline</h3>
+        <div id="play-btn" class="icofont-ui-pause"></div>
+      </span>
+      <div class="progress-wrapper">
+        <h4>City</h4>
+        <progress id="progress-city" min="0"></progress>
+      </div>
+      <div class="progress-wrapper">
+        <h4>Ocean</h4>
+        <progress id="progress-ocean" min="0"></progress>
+      </div>
+      <div class="progress-wrapper">
+        <h4>Rewind</h4>
+        <progress id="progress-rewind" min="0"></progress>
+      </div>
+    </nav>
+
+    <video id="vid-city" src="videos/city.mp4" muted></video>
+    <video id="vid-ocean" src="videos/clean-city.mp4"></video>
+    <video id="vid-rewind" src="videos/oceansale1.mp4"></video>
   </section>
 
   <script type="text/javascript" src="scripts/main.js">

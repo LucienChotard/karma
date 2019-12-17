@@ -89,7 +89,13 @@ let vidOcean = new Video('#vid-ocean',"#progress-ocean")
 let globalVid = [vidCity,vidOcean]
 changeViewWrapper.addEventListener('click',changeView)
 
-let factMegot = new Info(8,vidCity,"Un seul mégot pollue jusqu'à 500 litres d'eau. Chaque année, en France, le total des mégots jetés représente entre 20 000 et 25 0000 tonnes, soit plus de deux fois le poids la Tour Eiffel.","50%","50vh",9000)
+let factMegot = new Info(
+  8,
+  vidCity,
+  "Un seul mégot pollue jusqu'à 500 litres d'eau. Chaque année, en France, le total des mégots jetés représente entre 20 000 et 25 0000 tonnes, soit plus de deux fois le poids la Tour Eiffel.",
+  "50%",
+  "50vh",
+  9000)
 factMegot.init()
 let factCanette = new Info(22,vidCity,"6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année. 200 zones privées d’oxygène et dépourvues de vie dans l’Océan mondial Il a maintenant près de 500 zones mortes, recouvrant plus de 245 000 km2 dans le monde entier, soit la surface du Royaume-Uni.","50%","50vh",9000)
 factCanette.init()
@@ -165,6 +171,7 @@ function pauseAll(){
 }
 
 function seekBarRefresh(){
+  console.log(vidCity.video.currentTime)
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidOcean.video.currentTime)
 

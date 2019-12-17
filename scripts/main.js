@@ -50,7 +50,7 @@ class Info{
     setTimeout((e)=>{this.infoPoint.style.display="none"},1000)
   }
   check(){
-    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.keyFrame+1 && this.callOnce && !this.targetVideo.style.display=="none"){
+    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.keyFrame+1 && this.callOnce ){
       this.callOnce=false
       this.infoPoint.classList.add('info-point')
       this.infoPoint.classList.add('pulse')
@@ -137,11 +137,6 @@ playBtn.addEventListener('click',(e)=>{
     pauseAll()
   }
 })
-
-for(i of globalVid){
-  i.progress.addEventListener('click',(e)=>{console.log('test')})
-}
-
 
 function playAll(){
   for(i of globalVid){

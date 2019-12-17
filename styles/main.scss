@@ -128,12 +128,18 @@ body{
     min-height: 100%;
   }
   #vid-city{
+    max-width: 100%;
+    height: auto;
     z-index: 3;
   }
   #vid-ocean{
+    max-width: 100%;
+    height: auto;
     z-index: 2;
   }
   #vid-rewind{
+    max-width: 100%;
+    height: auto;
     z-index: 1;
   }
   #change-view-wrapper{

@@ -12,11 +12,10 @@ let curVideo = 0
 let callOnce = true
 
 class Info{
-  constructor(keyFrame,targetVideo,isVideoPaused,content,posX,posY,duration)
+  constructor(keyFrame,targetVideo,content,posX,posY,duration)
   {
     this.keyFrame = keyFrame
     this.targetVideo = targetVideo.video
-    this.isVideoPaused = isVideoPaused
     this.content = content
     this.callOnce = true
     this.posX = posX
@@ -30,6 +29,11 @@ class Info{
       this.check()
     })
   }
+  modalClear(){
+    this.modal.classList.remove('fade-in')
+    this.modal.classList.add('fade-out')
+    setTimeout((e)=>{this.modal.style.display="none"},1000)
+  }
   modalOpen(){
     this.infoClear()
     this.modal.classList.add('modal-info')
@@ -39,8 +43,13 @@ class Info{
     this.modal.style.top=this.posY
     let paragraph = document.createElement('p')
     paragraph.innerHTML=this.content
+    let border = document.createElement('div')
+    border.classList.add('infoProgressBar')
     this.modal.append(paragraph)
+    this.modal.append(border)
     player.appendChild(this.modal)
+    border.classList.add('loading')
+    setTimeout((e)=>{this.modalClear()},8000)
   }
   infoClear(){
     console.log('ok')
@@ -80,8 +89,10 @@ let vidOcean = new Video('#vid-ocean',"#progress-ocean")
 let globalVid = [vidCity,vidOcean]
 changeViewWrapper.addEventListener('click',changeView)
 
-let factTest = new Info(5,vidCity,true,"500 zones mortes. C'est plus de 245 000 km² dans le monde entier, soit la surface du Royaume-Uni.","50vw","50vh",4000)
-factTest.init()
+let factMegot = new Info(8,vidCity,"Un seul mégot pollue jusqu'à 500 litres d'eau. Chaque année, en France, le total des mégots jetés représente entre 20 000 et 25 0000 tonnes, soit plus de deux fois le poids la Tour Eiffel.","50%","50vh",9000)
+factMegot.init()
+let factCanette = new Info(22,vidCity,"6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année. 200 zones privées d’oxygène et dépourvues de vie dans l’Océan mondial Il a maintenant près de 500 zones mortes, recouvrant plus de 245 000 km2 dans le monde entier, soit la surface du Royaume-Uni.","50%","50vh",9000)
+factCanette.init()
 
 function changeView(){
   if(vidCity.video.classList.contains('none')){
@@ -172,7 +183,7 @@ rewindBtn.addEventListener('click',(e)=>{
   playAll()
   rewindModal.classList.remove("fade-in")
   rewindModal.classList.add("fade-out")
-  vidCity.progress.style.removeProperty("--c")
+  vidCity.video.classList.remove('blur')
 })
 
 for(i of globalVid){

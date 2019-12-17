@@ -120,6 +120,18 @@ body {
     #player .modal-info p {
       font-family: AvenirBook;
       color: white; }
+    #player .modal-info .infoProgressBar {
+      width: 100%;
+      height: 2px;
+      background: red;
+      bottom: 0;
+      position: absolute;
+      left: 0; }
+    #player .modal-info .loading {
+      animation-name: info-load;
+      animation-duration: 8s;
+      animation-fill-mode: both;
+      animation-timing-function: linear; }
   #player video {
     position: fixed;
     right: 0;
@@ -277,5 +289,11 @@ body {
     box-shadow: 0 0 0 45px rgba(255, 255, 255, 0); } }
 .none {
   display: none; }
+
+@keyframes info-load {
+  from {
+    width: 0%; }
+  to {
+    width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */

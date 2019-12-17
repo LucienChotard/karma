@@ -144,6 +144,20 @@ body{
       font-family: AvenirBook;
       color:white;
     }
+    .infoProgressBar{
+      width: 100%;
+      height: 2px;
+      background: red;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+    }
+    .loading{
+      animation-name: info-load;
+      animation-duration: 8s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
   }
   video{
     position: fixed;
@@ -331,4 +345,12 @@ body{
 @keyframes pulse {to {box-shadow: 0 0 0 45px rgba(255, 255, 255, 0);}}
 .none{
   display: none;
+}
+@keyframes info-load{
+  from{
+    width: 0%;
+  }
+  to{
+    width: 100%;
+  }
 }

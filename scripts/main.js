@@ -92,13 +92,47 @@ changeViewWrapper.addEventListener('click',changeView)
 let factMegot = new Info(
   8,
   vidCity,
-  "Un seul mégot pollue jusqu'à 500 litres d'eau. Chaque année, en France, le total des mégots jetés représente entre 20 000 et 25 0000 tonnes, soit plus de deux fois le poids la Tour Eiffel.",
+  "Un mégot pollue jusqu'à 500 litres d'eau. <br> En France, le total des mégots jetés représente 25 0000 tonnes par an, soit plus de 2x le poids la Tour Eiffel.",
   "50%",
   "50vh",
   9000)
 factMegot.init()
-let factCanette = new Info(22,vidCity,"6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année. 200 zones privées d’oxygène et dépourvues de vie dans l’Océan mondial Il a maintenant près de 500 zones mortes, recouvrant plus de 245 000 km2 dans le monde entier, soit la surface du Royaume-Uni.","50%","50vh",9000)
+
+let factCanette = new Info(
+  32,
+  vidOcean,
+  "6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année. Il a maintenant près de 500 zones mortes, pouvant recouvrir le Royaume-Uni.",
+  "80%",
+  "30vh",
+  9000)
 factCanette.init()
+
+let factEatingFish = new Info(
+  53,
+  vidOcean,
+  "Un mégot jeté dans la rue, cest 96h pour tuer un poisson et 10 ans pour qu’il se biodégrade",
+  "60%",
+  "50vh",
+  9000)
+factEatingFish.init()
+
+let factFishing = new Info(
+  75,
+  vidOcean,
+  "29 % des ressources marines sont surexploitées",
+  "40%",
+  "28vh",
+  9000)
+factFishing.init()
+
+let factFishingNet = new Info(
+  81,
+  vidOcean,
+  "La lente agonie des poissons pêchés : La durée de l’agonie varie selon les espèces, le traitement, mais aussi la température. Elle peut se prolonger de 25 minutes à 4 heures : à titre de comparaison, elle peut aller jusqu’à 14 minutes pour un bovin.",
+  "40%",
+  "55vh",
+  9000)
+factFishingNet.init()
 
 function changeView(){
   if(vidCity.video.classList.contains('none')){

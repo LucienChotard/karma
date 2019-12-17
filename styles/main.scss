@@ -6,6 +6,10 @@
   font-family: AvenirBook;
   src: url(../fonts/AvenirLTStd-Book.otf);
 }
+@font-face {
+  font-family: AvenirHeavyOblique;
+  src: url(../fonts/AvenirLTStd-HeavyOblique.otf);
+}
 h1,h2,h3,h4,h5,h6,p{
   margin:0;
   padding: 0;
@@ -136,13 +140,20 @@ body{
   .modal-info{
     width:300px;
     display: none;
+    border-radius: 5px;
     background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     position: fixed;
     z-index: 11;
+    h4{
+      font-family: AvenirHeavyOblique;
+      text-transform: uppercase;
+    }
     p{
+      margin: 20px 10px;
       font-family: AvenirBook;
       color:white;
+      text-align: center;
     }
     .infoProgressBar{
       width: 100%;

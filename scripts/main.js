@@ -92,7 +92,7 @@ changeViewWrapper.addEventListener('click',changeView)
 let factMegot = new Info(
   8,
   vidCity,
-  "Un mégot pollue jusqu'à 500 litres d'eau. <br> En France, le total des mégots jetés représente 25 0000 tonnes par an, soit plus de 2x le poids la Tour Eiffel.",
+  "<h4>Un mégot c'est 500 litres d'eau pollués.</h4><br> En France, le total des mégots jetés représente 25 0000 tonnes par an, soit plus de 2x le poids de la Tour Eiffel.",
   "50%",
   "50vh",
   9000)
@@ -101,17 +101,17 @@ factMegot.init()
 let factUsines = new Info(
   22,
   vidCity,
-  "La pollution est la dégradation d'un écosystème ou de la biosphère par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de cet écosystème.",
-  "50%",
-  "50vh",
+  "<h4>La pollution</h4><br> C'est la dégradation d'un écosystème par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de celui-ci.",
+  "40%",
+  "30vh",
   9000)
 factUsines.init()
 
 let factCanette = new Info(
   32,
   vidOcean,
-  "Il a maintenant près de 500 zones mortes, recouvrant plus de 245 000 km2 dans le monde entier, soit la surface du Royaume-Uni.",
-  "80%",
+  "<h4>500 zones mortes</h4><br> recouvrant plus de 245 000 km2 dans le monde entier, elles équivalent à la surface du Royaume-Uni.",
+  "75%",
   "30vh",
   9000)
 factCanette.init()
@@ -119,34 +119,43 @@ factCanette.init()
 let factEatingFish = new Info(
   53,
   vidOcean,
-  "Un mégot jeté dans la rue, cest 96h pour tuer un poisson et 10 ans pour qu’il se biodégrade",
+  "<h4>Un mégot jeté dans la rue</h4><br> C'est 96h pour tuer un poisson et 10 ans pour qu’il se biodégrade.",
   "60%",
   "50vh",
   9000)
 factEatingFish.init()
 
+let factCars = new Info(
+  61,
+  vidCity,
+  "<h4>12%</h4><br> C'est le nombre d'habitants qui prend sa voiture pour aller travailler. Pourtant à Paris, la moitié de l’espace public de circulation est réservée à l’automobile…",
+  "65%",
+  "55vh",
+  9000)
+factCars.init()
+
 let factFishing = new Info(
   75,
   vidOcean,
-  "29 % des ressources marines sont surexploitées",
+  "<h4>29%</h4><br> C'est le pourcentage des ressources marines surexploitées",
   "40%",
   "28vh",
   9000)
 factFishing.init()
 
 let factFishingNet = new Info(
-  81,
+  86,
   vidOcean,
-  "La lente agonie des poissons pêchés : La durée de l’agonie varie selon les espèces, le traitement, mais aussi la température. Elle peut se prolonger de 25 minutes à 4 heures : à titre de comparaison, elle peut aller jusqu’à 14 minutes pour un bovin.",
-  "40%",
+  "<h4>La lente agonie des poissons pêchés</h4><br>La durée de l’agonie peut se prolonger de 25 minutes à 4 heures : à titre de comparaison, elle peut aller jusqu’à 14 minutes pour un bovin.",
+  "60%",
   "55vh",
   9000)
 factFishingNet.init()
 
 let factOrdure = new Info(
-  95,
+  97,
   vidOcean,
-  "6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année.",
+  "<h4>6,5 millions de tonnes</h4><br> C'est le nombre d’ordures qui est rejeté dans l’Océan mondial chaque année.",
   "50%",
   "45vh",
   9000)
@@ -155,7 +164,7 @@ factOrdure.init()
 let factSolution = new Info(
   119,
   vidCity,
-  "Bravo ! Vous avez sauvé un poisson.",
+  "<h4>Bravo !</h4><br> Vous avez sauvé un poisson.",
   "50%",
   "60vh",
   9000)
@@ -164,7 +173,7 @@ factSolution.init()
 let factCleanOcean = new Info(
   120,
   vidOcean,
-  "Adoptez le bon geste, vous ferez la différence.",
+  "<h4>Sans plus attendre...</h4><br>Adoptez le bon geste, vous ferez la différence.",
   "50%",
   "50vh",
   9000)

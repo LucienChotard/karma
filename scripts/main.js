@@ -98,10 +98,19 @@ let factMegot = new Info(
   9000)
 factMegot.init()
 
+let factUsines = new Info(
+  22,
+  vidCity,
+  "La pollution est la dégradation d'un écosystème ou de la biosphère par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de cet écosystème.",
+  "50%",
+  "50vh",
+  9000)
+factUsines.init()
+
 let factCanette = new Info(
   32,
   vidOcean,
-  "6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année. Il a maintenant près de 500 zones mortes, pouvant recouvrir le Royaume-Uni.",
+  "Il a maintenant près de 500 zones mortes, recouvrant plus de 245 000 km2 dans le monde entier, soit la surface du Royaume-Uni.",
   "80%",
   "30vh",
   9000)
@@ -133,6 +142,33 @@ let factFishingNet = new Info(
   "55vh",
   9000)
 factFishingNet.init()
+
+let factOrdure = new Info(
+  95,
+  vidOcean,
+  "6,5 millions de tonnes d’ordures sont rejetés dans l’Océan mondial chaque année.",
+  "50%",
+  "45vh",
+  9000)
+factOrdure.init()
+
+let factSolution = new Info(
+  119,
+  vidCity,
+  "Bravo ! Vous avez sauvé un poisson.",
+  "50%",
+  "60vh",
+  9000)
+factSolution.init()
+
+let factCleanOcean = new Info(
+  120,
+  vidOcean,
+  "Adoptez le bon geste, vous ferez la différence.",
+  "50%",
+  "50vh",
+  9000)
+factCleanOcean.init()
 
 function changeView(){
   if(vidCity.video.classList.contains('none')){

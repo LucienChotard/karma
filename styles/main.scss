@@ -230,30 +230,6 @@ body{
     .progress-wrapper{
       display: flex;
       justify-content: flex-start;
-      .vid-hide{
-        position: absolute;
-        height: 14px;
-        background: black;
-        margin-top: 7px;
-      }
-      #vid-city-hide{
-        width: 58%;
-        left: 11%;
-      }
-      #vid-city-hide-end{
-        width: 15%;
-        left: 86%;
-      }
-      #vid-ocean-hide{
-        width: 3%;
-      }
-      #vid-ocean-hide-end{
-        left:69%;
-        width: 31%;
-      }
-      #vid-rewind-hide{
-        width:86%;
-      }
       h4{
         width: 100px;
         padding: 5px;

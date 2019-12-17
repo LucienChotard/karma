@@ -8,6 +8,7 @@ const changeViewWrapper = document.querySelector('#change-view-wrapper')
 const changeViewBtn = document.querySelector('#change-view')
 const rewindModal = document.querySelector('#rewind-modal')
 const rewindBtn = document.querySelector('#rewind-btn')
+let curVideo = 0
 let callOnce = true
 
 class Info{
@@ -76,8 +77,7 @@ class Video {
 }
 let vidCity = new Video('#vid-city',"#progress-city")
 let vidOcean = new Video('#vid-ocean',"#progress-ocean")
-let vidRewind = new Video('#vid-rewind',"#progress-rewind")
-let globalVid = [vidCity,vidOcean,vidRewind]
+let globalVid = [vidCity,vidOcean]
 changeViewWrapper.addEventListener('click',changeView)
 
 let factTest = new Info(5,vidCity,true,"500 zones mortes. C'est plus de 245 000 km² dans le monde entier, soit la surface du Royaume-Uni.","50vw","50vh",4000)
@@ -92,6 +92,7 @@ function changeView(){
     changeViewBtn.setAttribute('src','images/wave.svg')
     vidCity.progress.style.setProperty("--c", "#145574");
     vidOcean.progress.style.removeProperty("--c")
+    curVideo = 0
   }
   else{
     vidCity.video.muted = true
@@ -101,6 +102,7 @@ function changeView(){
     changeViewBtn.setAttribute('src','images/cityscape.svg')
     vidCity.progress.style.removeProperty("--c")
     vidOcean.progress.style.setProperty("--c", "#145574");
+    curVideo = 1
   }
   vidCity.video.classList.toggle('none')
   callOnce = true
@@ -121,11 +123,8 @@ startBtn.addEventListener('click',(e)=>{
     player.classList.add('fade-in')
     playAll()
     vidOcean.video.muted=true
-    vidRewind.video.muted=true
-    vidRewind.video.style.display="none"
     vidOcean.video.style.display="none"
-    vidCity.progress.style.setProperty("--c", "#145574");
-    changeViewWrapper.classList.add('none')
+    vidCity.progress.style.setProperty("--c", "#145574")
   }, 2500);
 })
 
@@ -156,28 +155,9 @@ function pauseAll(){
 
 function seekBarRefresh(){
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
-  vidOcean.progress.setAttribute("value",vidCity.video.currentTime)
-  vidRewind.progress.setAttribute("value",vidCity.video.currentTime)
-  if(vidCity.video.currentTime > 4.3){
-    changeViewWrapper.classList.remove('none')
-  }
-  if(vidCity.video.currentTime > 16.4){
-    changeViewWrapper.classList.add('none')
-  }
+  vidOcean.progress.setAttribute("value",vidOcean.video.currentTime)
 
-  if(vidCity.video.currentTime > 16 && vidCity.video.currentTime < 16.4 && !vidCity.video.classList.contains('none')){
-    if(callOnce){
-      callOnce = false
-      changeView()
-    }
-  }
-  if(vidCity.video.currentTime > 91 && vidCity.video.currentTime < 92 && vidCity.video.classList.contains('none')){
-    if(callOnce){
-      callOnce = false
-      changeView()
-    }
-  }
-  if(vidCity.video.currentTime > 113 && vidCity.video.currentTime < 114 && !vidCity.video.classList.contains('none')){
+  if(vidCity.video.currentTime > 113 && vidCity.video.currentTime < 114){
     if(callOnce){
       callOnce = false
       vidCity.video.classList.add('blur')
@@ -189,20 +169,24 @@ function seekBarRefresh(){
 }
 
 rewindBtn.addEventListener('click',(e)=>{
-  vidCity.video.classList.add('none')
-  vidOcean.video.classList.add('none')
-  vidRewind.video.style.display="block"
   playAll()
-  vidCity.video.muted = true
-  vidOcean.video.muted = true
-  vidRewind.video.muted= false
   rewindModal.classList.remove("fade-in")
   rewindModal.classList.add("fade-out")
   vidCity.progress.style.removeProperty("--c")
-  vidRewind.progress.style.setProperty("--c", "#145574");
 })
 
 for(i of globalVid){
-  i.progress.setAttribute("max",131.136)
+  i.progress.setAttribute("max",130.096633)
   i.video.addEventListener('timeupdate',seekBarRefresh)
+  i.progress.addEventListener("click", seek)
+}
+
+function seek(event) {
+  var percent = event.offsetX / this.offsetWidth;
+  vidCity.video.currentTime = percent * vidCity.video.duration
+  vidOcean.video.currentTime = percent * vidOcean.video.duration
+  vidCity.progress.value = percent / 100;
+  if(curVideo != event.target.getAttribute('data-vidid')){
+    changeView()
+  }
 }

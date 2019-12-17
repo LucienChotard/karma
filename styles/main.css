@@ -193,24 +193,6 @@ body {
     #player nav .progress-wrapper {
       display: flex;
       justify-content: flex-start; }
-      #player nav .progress-wrapper .vid-hide {
-        position: absolute;
-        height: 14px;
-        background: black;
-        margin-top: 7px; }
-      #player nav .progress-wrapper #vid-city-hide {
-        width: 58%;
-        left: 11%; }
-      #player nav .progress-wrapper #vid-city-hide-end {
-        width: 15%;
-        left: 86%; }
-      #player nav .progress-wrapper #vid-ocean-hide {
-        width: 3%; }
-      #player nav .progress-wrapper #vid-ocean-hide-end {
-        left: 69%;
-        width: 31%; }
-      #player nav .progress-wrapper #vid-rewind-hide {
-        width: 86%; }
       #player nav .progress-wrapper h4 {
         width: 100px;
         padding: 5px; }

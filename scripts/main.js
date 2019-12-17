@@ -10,6 +10,61 @@ const rewindModal = document.querySelector('#rewind-modal')
 const rewindBtn = document.querySelector('#rewind-btn')
 let callOnce = true
 
+class Info{
+  constructor(keyFrame,targetVideo,isVideoPaused,content,posX,posY,duration)
+  {
+    this.keyFrame = keyFrame
+    this.targetVideo = targetVideo.video
+    this.isVideoPaused = isVideoPaused
+    this.content = content
+    this.callOnce = true
+    this.posX = posX
+    this.posY = posY
+    this.infoPoint = document.createElement('div')
+    this.modal = document.createElement('div')
+    this.duration = duration
+  }
+  init(){
+    this.targetVideo.addEventListener('timeupdate',(e)=>{
+      this.check()
+    })
+  }
+  modalOpen(){
+    this.infoClear()
+    this.modal.classList.add('modal-info')
+    this.modal.style.display="block"
+    this.modal.classList.add('fade-in')
+    this.modal.style.left=this.posX
+    this.modal.style.top=this.posY
+    let paragraph = document.createElement('p')
+    paragraph.innerHTML=this.content
+    this.modal.append(paragraph)
+    player.appendChild(this.modal)
+  }
+  infoClear(){
+    console.log('ok')
+    this.infoPoint.classList.remove('pulse')
+    this.infoPoint.classList.remove('fade-in')
+    this.infoPoint.classList.add('fade-out')
+    this.infoPoint.removeEventListener("click",(e)=>{this.modalOpen})
+    setTimeout((e)=>{this.infoPoint.style.display="none"},1000)
+  }
+  check(){
+    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.keyFrame+1 && this.callOnce && !this.targetVideo.style.display=="none"){
+      this.callOnce=false
+      this.infoPoint.classList.add('info-point')
+      this.infoPoint.classList.add('pulse')
+      this.infoPoint.style.left=this.posX
+      this.infoPoint.style.top=this.posY
+      this.infoPoint.addEventListener('click',(e)=>{this.modalOpen()})
+      player.appendChild(this.infoPoint)
+      this.infoPoint.style.display="block"
+      this.infoPoint.classList.add('fade-in')
+      setTimeout((e)=>{this.infoClear()},this.duration)
+    }
+  }
+}
+
 class Video {
   constructor(videoId,progressId){
     this.video = document.querySelector(videoId)
@@ -23,13 +78,17 @@ let vidCity = new Video('#vid-city',"#progress-city")
 let vidOcean = new Video('#vid-ocean',"#progress-ocean")
 let vidRewind = new Video('#vid-rewind',"#progress-rewind")
 let globalVid = [vidCity,vidOcean,vidRewind]
-
 changeViewWrapper.addEventListener('click',changeView)
+
+let factTest = new Info(5,vidCity,true,"500 zones mortes. C'est plus de 245 000 km² dans le monde entier, soit la surface du Royaume-Uni.","50vw","50vh",4000)
+factTest.init()
 
 function changeView(){
   if(vidCity.video.classList.contains('none')){
     vidCity.video.muted = false
     vidOcean.video.muted = true
+    vidOcean.video.style.display="none"
+    vidCity.video.style.display="block"
     changeViewBtn.setAttribute('src','images/wave.svg')
     vidCity.progress.style.setProperty("--c", "#145574");
     vidOcean.progress.style.removeProperty("--c")
@@ -37,6 +96,8 @@ function changeView(){
   else{
     vidCity.video.muted = true
     vidOcean.video.muted = false
+    vidOcean.video.style.display="block"
+    vidCity.video.style.display="none"
     changeViewBtn.setAttribute('src','images/cityscape.svg')
     vidCity.progress.style.removeProperty("--c")
     vidOcean.progress.style.setProperty("--c", "#145574");
@@ -61,6 +122,8 @@ startBtn.addEventListener('click',(e)=>{
     playAll()
     vidOcean.video.muted=true
     vidRewind.video.muted=true
+    vidRewind.video.style.display="none"
+    vidOcean.video.style.display="none"
     vidCity.progress.style.setProperty("--c", "#145574");
     changeViewWrapper.classList.add('none')
   }, 2500);
@@ -74,6 +137,11 @@ playBtn.addEventListener('click',(e)=>{
     pauseAll()
   }
 })
+
+for(i of globalVid){
+  i.progress.addEventListener('click',(e)=>{console.log('test')})
+}
+
 
 function playAll(){
   for(i of globalVid){
@@ -92,7 +160,6 @@ function pauseAll(){
 }
 
 function seekBarRefresh(){
-  console.log(vidCity.video.currentTime)
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidCity.video.currentTime)
   vidRewind.progress.setAttribute("value",vidCity.video.currentTime)
@@ -129,6 +196,7 @@ function seekBarRefresh(){
 rewindBtn.addEventListener('click',(e)=>{
   vidCity.video.classList.add('none')
   vidOcean.video.classList.add('none')
+  vidRewind.video.style.display="block"
   playAll()
   vidCity.video.muted = true
   vidOcean.video.muted = true

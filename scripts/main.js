@@ -31,7 +31,7 @@ function changeView(){
     vidCity.video.muted = false
     vidOcean.video.muted = true
     changeViewBtn.setAttribute('src','images/wave.svg')
-    vidCity.progress.style.setProperty("--c", "#fcba03");
+    vidCity.progress.style.setProperty("--c", "#145574");
     vidOcean.progress.style.removeProperty("--c")
   }
   else{
@@ -39,7 +39,7 @@ function changeView(){
     vidOcean.video.muted = false
     changeViewBtn.setAttribute('src','images/cityscape.svg')
     vidCity.progress.style.removeProperty("--c")
-    vidOcean.progress.style.setProperty("--c", "#fcba03");
+    vidOcean.progress.style.setProperty("--c", "#145574");
   }
   vidCity.video.classList.toggle('none')
   callOnce = true
@@ -61,7 +61,7 @@ startBtn.addEventListener('click',(e)=>{
     playAll()
     vidOcean.video.muted=true
     vidRewind.video.muted=true
-    vidCity.progress.style.setProperty("--c", "#fcba03");
+    vidCity.progress.style.setProperty("--c", "#145574");
     changeViewWrapper.classList.add('none')
   }, 2500);
 })
@@ -136,7 +136,7 @@ rewindBtn.addEventListener('click',(e)=>{
   rewindModal.classList.remove("fade-in")
   rewindModal.classList.add("fade-out")
   vidCity.progress.style.removeProperty("--c")
-  vidRewind.progress.style.setProperty("--c", "#fcba03");
+  vidRewind.progress.style.setProperty("--c", "#145574");
 })
 
 for(i of globalVid){

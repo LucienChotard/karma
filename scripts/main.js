@@ -4,12 +4,14 @@ const wave = document.querySelector('#wave')
 const backWave = document.querySelector('#back-wave')
 const player = document.querySelector('#player')
 const playBtn = document.querySelector('#play-btn')
+const buttons = document.querySelector('#buttons')
 const changeViewWrapper = document.querySelector('#change-view-wrapper')
 const changeViewBtn = document.querySelector('#change-view')
 const rewindModal = document.querySelector('#rewind-modal')
 const rewindBtn = document.querySelector('#rewind-btn')
 let curVideo = 0
 let callOnce = true
+let isRewindModalOpened = false
 
 class Info{
   constructor(id,keyFrame,targetVideo,content,posX,posY,duration)
@@ -289,9 +291,10 @@ function seekBarRefresh(){
 
 
   if(vidCity.video.currentTime > 113 && callOnce){
-    if(curVideo=1){
-      changeView()
-    }
+      if(vidCity.video.style.display=="none"){
+        changeView()
+      }
+      isRewindModalOpened = true
       callOnce = false
       vidCity.video.currentTime = 113
       vidOcean.video.currentTime = 113
@@ -299,6 +302,7 @@ function seekBarRefresh(){
       pauseAll()
       rewindModal.style.display="block"
       rewindModal.classList.add("fade-in")
+      buttons.classList.add("fade-out")
   }
 }
 
@@ -307,6 +311,9 @@ rewindBtn.addEventListener('click',(e)=>{
   rewindModal.classList.remove("fade-in")
   rewindModal.classList.add("fade-out")
   vidCity.video.classList.remove('blur')
+  buttons.classList.remove("fade-out")
+  buttons.classList.add("fade-in")
+  isRewindModalOpened = false
 })
 
 for(i of globalVid){
@@ -316,11 +323,16 @@ for(i of globalVid){
 }
 
 function seek(event) {
-  var percent = event.offsetX / this.offsetWidth;
-  vidCity.video.currentTime = percent * vidCity.video.duration
-  vidOcean.video.currentTime = percent * vidOcean.video.duration
-  vidCity.progress.value = percent / 100;
-  if(curVideo != event.target.getAttribute('data-vidid')){
-    changeView()
+  if(isRewindModalOpened){
+
+  }
+  else{
+    var percent = event.offsetX / this.offsetWidth;
+    vidCity.video.currentTime = percent * vidCity.video.duration
+    vidOcean.video.currentTime = percent * vidOcean.video.duration
+    vidCity.progress.value = percent / 100;
+    if(curVideo != event.target.getAttribute('data-vidid')){
+      changeView()
+    }  
   }
 }

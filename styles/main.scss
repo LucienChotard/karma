@@ -250,9 +250,9 @@ body{
         margin-right: 10px;
       }
       #play-btn{
-        margin-top: 5px;
-        margin-bottom: 7px;
         cursor: pointer;
+        padding: 5px;
+        margin-bottom: 20px
       }
     }
     .progress-wrapper{
@@ -273,12 +273,40 @@ body{
           border: none;
         }
         progress::-webkit-progress-bar {
+          padding: 2px;
           background: white;
+          border-radius: 15px;
         }
         progress::-webkit-progress-value {
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
           background: var(--c,white);
           animation: move 5s linear 0 infinite;
+          border-radius: 15px;
+        }
+        .progress-point{
+          position: absolute;
+          height: 5px;
+          width:5px;
+          border-radius: 100%;
+          background: #00ffdc;
+          z-index: 14;
+        }
+        .vid-hide{
+          position: absolute;
+          height: 20px;
+          background: #13131347;
+          pointer-events: none;
+        }
+        #city-hide{
+          left: 15%;
+          width: 55%;
+        }
+        #ocean-hide{
+          width: 10%;
+        }
+        #ocean-hide-end{
+          width: 30%;
+          left: 70%;
         }
       }
     }

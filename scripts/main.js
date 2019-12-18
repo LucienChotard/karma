@@ -16,13 +16,14 @@ class Info{
   {
     this.keyFrame = keyFrame
     this.targetVideo = targetVideo.video
+    this.targetProgress = targetVideo.progress
     this.content = content
-    this.callOnce = true
     this.posX = posX
     this.posY = posY
+    this.duration = duration
+    this.callOnce = true
     this.infoPoint = document.createElement('div')
     this.modal = document.createElement('div')
-    this.duration = duration
   }
   init(){
     this.targetVideo.addEventListener('timeupdate',(e)=>{
@@ -52,25 +53,27 @@ class Info{
     setTimeout((e)=>{this.modalClear()},8000)
   }
   infoClear(){
-    console.log('ok')
     this.infoPoint.classList.remove('pulse')
     this.infoPoint.classList.remove('fade-in')
     this.infoPoint.classList.add('fade-out')
     this.infoPoint.removeEventListener("click",(e)=>{this.modalOpen})
     setTimeout((e)=>{this.infoPoint.style.display="none"},1000)
   }
+  infoSet(){
+    this.infoPoint.classList.add('info-point')
+    this.infoPoint.classList.add('pulse')
+    this.infoPoint.style.left=this.posX
+    this.infoPoint.style.top=this.posY
+    this.infoPoint.addEventListener('click',(e)=>{this.modalOpen()})
+    player.appendChild(this.infoPoint)
+    this.infoPoint.style.display="block"
+    this.infoPoint.classList.add('fade-in')
+    setTimeout((e)=>{this.infoClear()},this.duration)
+  }
   check(){
-    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.keyFrame+1 && this.callOnce ){
+    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.duration && this.callOnce && curVideo == this.targetVideo.getAttribute('data-vidid') ){
       this.callOnce=false
-      this.infoPoint.classList.add('info-point')
-      this.infoPoint.classList.add('pulse')
-      this.infoPoint.style.left=this.posX
-      this.infoPoint.style.top=this.posY
-      this.infoPoint.addEventListener('click',(e)=>{this.modalOpen()})
-      player.appendChild(this.infoPoint)
-      this.infoPoint.style.display="block"
-      this.infoPoint.classList.add('fade-in')
-      setTimeout((e)=>{this.infoClear()},this.duration)
+      this.infoSet()
     }
   }
 }
@@ -84,100 +87,111 @@ class Video {
     this.progress.setAttribute('max',this.video.duration)
   }
 }
+
 let vidCity = new Video('#vid-city',"#progress-city")
 let vidOcean = new Video('#vid-ocean',"#progress-ocean")
 let globalVid = [vidCity,vidOcean]
 changeViewWrapper.addEventListener('click',changeView)
 
-let factMegot = new Info(
-  8,
-  vidCity,
-  "<h4>Un mégot c'est 500 litres d'eau pollués.</h4><br> En France, le total des mégots jetés représente 25 0000 tonnes par an, soit plus de 2x le poids de la Tour Eiffel.",
-  "50%",
-  "50vh",
-  9000)
-factMegot.init()
+let factArray=[
+  new Info(
+    8,
+    vidCity,
+    "<h4>Un mégot c'est 500 litres d'eau pollués.</h4><br> En France, le total des mégots jetés représente 25 0000 tonnes par an, soit plus de 2x le poids de la Tour Eiffel.",
+    "50%",
+    "50vh",
+    9000
+  ),
+  new Info(
+    22,
+    vidCity,
+    "<h4>La pollution</h4><br> C'est la dégradation d'un écosystème par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de celui-ci.",
+    "40%",
+    "30vh",
+    9000
+  ),
+  new Info(
+    32,
+    vidOcean,
+    "<h4>500 zones mortes</h4><br> recouvrant plus de 245 000 km2 dans le monde entier, elles équivalent à la surface du Royaume-Uni.",
+    "75%",
+    "30vh",
+    9000
+  ),
+  new Info(
+    53,
+    vidOcean,
+    "<h4>Un mégot jeté dans la rue</h4><br> C'est 96h pour tuer un poisson et 10 ans pour qu’il se biodégrade.",
+    "60%",
+    "50vh",
+    9000
+  ),
+  new Info(
+    61,
+    vidCity,
+    "<h4>12%</h4><br> C'est le nombre d'habitants qui prend sa voiture pour aller travailler. Pourtant à Paris, la moitié de l’espace public de circulation est réservée à l’automobile…",
+    "65%",
+    "55vh",
+    9000
+  ),
+  new Info(
+    75,
+    vidOcean,
+    "<h4>29%</h4><br> C'est le pourcentage des ressources marines surexploitées",
+    "40%",
+    "28vh",
+    9000
+  ),
+  new Info(
+    86,
+    vidOcean,
+    "<h4>La lente agonie des poissons pêchés</h4><br>La durée de l’agonie peut se prolonger de 25 minutes à 4 heures : à titre de comparaison, elle peut aller jusqu’à 14 minutes pour un bovin.",
+    "60%",
+    "55vh",
+    9000
+  ),
+  new Info(
+    97,
+    vidOcean,
+    "<h4>6,5 millions de tonnes</h4><br> C'est le nombre d’ordures qui est rejeté dans l’Océan mondial chaque année.",
+    "50%",
+    "45vh",
+    9000
+  ),
+  new Info(
+    119,
+    vidCity,
+    "<h4>Bravo !</h4><br> Vous avez sauvé un poisson.",
+    "50%",
+    "60vh",
+    9000
+  ),
+  new Info(
+    120,
+    vidOcean,
+    "<h4>Sans plus attendre...</h4><br>Adoptez le bon geste, vous ferez la différence.",
+    "50%",
+    "50vh",
+    9000)
+]
 
-let factUsines = new Info(
-  22,
-  vidCity,
-  "<h4>La pollution</h4><br> C'est la dégradation d'un écosystème par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de celui-ci.",
-  "40%",
-  "30vh",
-  9000)
-factUsines.init()
+function factsInit(){
+  for(let i=0;i<factArray.length;i++){
+    factArray[i].init()
+  }
+}
 
-let factCanette = new Info(
-  32,
-  vidOcean,
-  "<h4>500 zones mortes</h4><br> recouvrant plus de 245 000 km2 dans le monde entier, elles équivalent à la surface du Royaume-Uni.",
-  "75%",
-  "30vh",
-  9000)
-factCanette.init()
-
-let factEatingFish = new Info(
-  53,
-  vidOcean,
-  "<h4>Un mégot jeté dans la rue</h4><br> C'est 96h pour tuer un poisson et 10 ans pour qu’il se biodégrade.",
-  "60%",
-  "50vh",
-  9000)
-factEatingFish.init()
-
-let factCars = new Info(
-  61,
-  vidCity,
-  "<h4>12%</h4><br> C'est le nombre d'habitants qui prend sa voiture pour aller travailler. Pourtant à Paris, la moitié de l’espace public de circulation est réservée à l’automobile…",
-  "65%",
-  "55vh",
-  9000)
-factCars.init()
-
-let factFishing = new Info(
-  75,
-  vidOcean,
-  "<h4>29%</h4><br> C'est le pourcentage des ressources marines surexploitées",
-  "40%",
-  "28vh",
-  9000)
-factFishing.init()
-
-let factFishingNet = new Info(
-  86,
-  vidOcean,
-  "<h4>La lente agonie des poissons pêchés</h4><br>La durée de l’agonie peut se prolonger de 25 minutes à 4 heures : à titre de comparaison, elle peut aller jusqu’à 14 minutes pour un bovin.",
-  "60%",
-  "55vh",
-  9000)
-factFishingNet.init()
-
-let factOrdure = new Info(
-  97,
-  vidOcean,
-  "<h4>6,5 millions de tonnes</h4><br> C'est le nombre d’ordures qui est rejeté dans l’Océan mondial chaque année.",
-  "50%",
-  "45vh",
-  9000)
-factOrdure.init()
-
-let factSolution = new Info(
-  119,
-  vidCity,
-  "<h4>Bravo !</h4><br> Vous avez sauvé un poisson.",
-  "50%",
-  "60vh",
-  9000)
-factSolution.init()
-
-let factCleanOcean = new Info(
-  120,
-  vidOcean,
-  "<h4>Sans plus attendre...</h4><br>Adoptez le bon geste, vous ferez la différence.",
-  "50%",
-  "50vh",
-  9000)
-factCleanOcean.init()
+function progressPointSet(){
+  for(let i=0;i<factArray.length;i++){
+    let percent = (factArray[i].keyFrame / factArray[i].targetVideo.duration)*100+"%"
+    let progressPoint = document.createElement('div')
+    progressPoint.classList.add('progress-point')
+    progressPoint.style.left=percent
+    progressPoint.style.width="5px"
+    factArray[i].targetProgress.after(progressPoint)
+    console.log(progressPoint)
+  }
+}
 
 function changeView(){
   if(vidCity.video.classList.contains('none')){
@@ -213,11 +227,13 @@ startBtn.addEventListener('click',(e)=>{
     landing.classList.add('fade-out')
   }, 500);
   setTimeout(function(){
+    playAll()
+    factsInit()
+    progressPointSet()
     landing.style.display="none"
     player.style.display="block"
     player.style.opacity="0"
     player.classList.add('fade-in')
-    playAll()
     vidOcean.video.muted=true
     vidOcean.video.style.display="none"
     vidCity.progress.style.setProperty("--c", "#145574")
@@ -250,7 +266,6 @@ function pauseAll(){
 }
 
 function seekBarRefresh(){
-  console.log(vidCity.video.currentTime)
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidOcean.video.currentTime)
 

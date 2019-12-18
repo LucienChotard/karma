@@ -211,9 +211,9 @@ body {
         margin-bottom: 20px;
         margin-right: 10px; }
       #player nav span #play-btn {
-        margin-top: 5px;
-        margin-bottom: 7px;
-        cursor: pointer; }
+        cursor: pointer;
+        padding: 5px;
+        margin-bottom: 20px; }
     #player nav .progress-wrapper {
       display: flex;
       justify-content: flex-start; }
@@ -230,11 +230,34 @@ body {
           -webkit-appearance: none;
           border: none; }
         #player nav .progress-wrapper .seekbar-wrapper progress::-webkit-progress-bar {
-          background: white; }
+          padding: 2px;
+          background: white;
+          border-radius: 15px; }
         #player nav .progress-wrapper .seekbar-wrapper progress::-webkit-progress-value {
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
           background: var(--c, white);
-          animation: move 5s linear 0 infinite; }
+          animation: move 5s linear 0 infinite;
+          border-radius: 15px; }
+        #player nav .progress-wrapper .seekbar-wrapper .progress-point {
+          position: absolute;
+          height: 5px;
+          width: 5px;
+          border-radius: 100%;
+          background: #00ffdc;
+          z-index: 14; }
+        #player nav .progress-wrapper .seekbar-wrapper .vid-hide {
+          position: absolute;
+          height: 20px;
+          background: #13131347;
+          pointer-events: none; }
+        #player nav .progress-wrapper .seekbar-wrapper #city-hide {
+          left: 15%;
+          width: 55%; }
+        #player nav .progress-wrapper .seekbar-wrapper #ocean-hide {
+          width: 10%; }
+        #player nav .progress-wrapper .seekbar-wrapper #ocean-hide-end {
+          width: 30%;
+          left: 70%; }
 
 .fade-out {
   animation-name: fadeOut;

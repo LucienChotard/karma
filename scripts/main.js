@@ -203,7 +203,6 @@ function progressPointSet(){
     progressPoint.classList.add('progress-point')
     progressPoint.setAttribute('data-factid',i)
     progressPoint.style.left=percent
-    progressPoint.style.width="5px"
     factArray[i].targetProgress.after(progressPoint)
   }
 }

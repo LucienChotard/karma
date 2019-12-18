@@ -261,8 +261,8 @@ body {
         #player nav .progress-wrapper .seekbar-wrapper .progress-point {
           position: absolute;
           height: 5px;
-          width: 5px;
-          border-radius: 100%;
+          width: 3%;
+          border-radius: 3px;
           background: #00ffdc;
           z-index: 14; }
         #player nav .progress-wrapper .seekbar-wrapper .vid-hide {

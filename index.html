@@ -35,6 +35,7 @@
   </section>
 
   <section id="player">
+<<<<<<< HEAD
     <nav>
       <span>
         <div id="play-btn" class="icofont-ui-play"></div>
@@ -43,15 +44,36 @@
         <h4>VILLE</h4>
         <div class="seekbar-wrapper">
           <progress data-vidid="0" id="progress-city" min="0"></progress>
+          <div class="vid-hide" id="city-hide"></div>
         </div>
       </div>
       <div class="progress-wrapper">
         <h4>OCEAN</h4>
         <div class="seekbar-wrapper">
           <progress data-vidid="1" id="progress-ocean" min="0"></progress>
+          <div class="vid-hide" id="ocean-hide"></div>
+          <div class="vid-hide" id="ocean-hide-end"></div>
+=======
+    <div id="mover">
+      <nav>
+        <span>
+          <div id="play-btn" class="icofont-ui-play"></div>
+        </span>
+        <div class="progress-wrapper">
+          <h4>VILLE</h4>
+          <div class="seekbar-wrapper">
+            <progress data-vidid="0" id="progress-city" min="0"></progress>
+          </div>
         </div>
-      </div>
-    </nav>
+        <div class="progress-wrapper">
+          <h4>OCEAN</h4>
+          <div class="seekbar-wrapper">
+            <progress data-vidid="1" id="progress-ocean" min="0"></progress>
+          </div>
+>>>>>>> 198a0fa5d00a700dcce3ecd92096da9ad6de070c
+        </div>
+      </nav>
+    </div>
 
     <div id="change-view-wrapper">
       <img id="change-view" src="images/wave.svg" alt="Change Camera">
@@ -62,8 +84,8 @@
       <a href="#" id="rewind-btn">REWIND <i class="icofont-rewind"></i></a>
     </div>
 
-    <video id="vid-city" src="videos/city.mp4" ></video>
-    <video id="vid-ocean" src="videos/ocean.mp4"></video>
+    <video data-vidid="0" id="vid-city" src="videos/city.mp4" ></video>
+    <video data-vidid="1" id="vid-ocean" src="videos/ocean.mp4"></video>
   </section>
 
   <script type="text/javascript" src="scripts/main.js">

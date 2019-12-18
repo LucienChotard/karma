@@ -200,7 +200,7 @@ body{
     padding: 15px;
     left:50%;
     margin-left: -17px;
-    bottom: 150px;
+    bottom: 120px;
     cursor: pointer;
     img{
       width:30px;
@@ -241,6 +241,9 @@ body{
     flex-direction: column;
     bottom: 0;
     padding: 10px;
+
+    transform: translateY(60%);
+    transition: transform 1s cubic-bezier(0.75, 0, 0.25, 1);
     span{
       display: flex;
       justify-content: center;
@@ -274,15 +277,42 @@ body{
         }
         progress::-webkit-progress-bar {
           background: white;
+          padding: 2px;
+          border-radius: 15px;
         }
         progress::-webkit-progress-value {
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
           background: var(--c,white);
+          border-radius: 15px;
           animation: move 5s linear 0 infinite;
+        }
+        .vid-hide{
+          position: absolute;
+          height: 20px;
+          background: #13131347;
+          pointer-events: none;
+        }
+        #city-hide{
+          left: 15%;
+          width: 55%;
+        }
+        #ocean-hide{
+          width: 10%;
+        }
+        #ocean-hide-end{
+          width: 30%;
+          left: 70%;
         }
       }
     }
   }
+  #mover {
+    width: 100%;
+    height: 40px;
+  }
+}
+#mover:hover nav {
+  transform: translateY(0px);
 }
 
 .fade-out{

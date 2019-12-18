@@ -193,15 +193,20 @@ body{
     height: auto;
     z-index: 1;
   }
-  #change-view-wrapper{
-    position: fixed;
+  #buttons {
+    position: absolute;
+    bottom: 130px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  #change-view-wrapper, #play-btn{
     z-index: 5;
     background: rgba(0,0,0,0.8);
     border-radius: 100%;
     padding: 15px;
-    left:50%;
-    margin-left: -17px;
-    bottom: 130px;
     cursor: pointer;
     img{
       width:30px;
@@ -248,15 +253,11 @@ body{
     span{
       display: flex;
       justify-content: center;
-      h3{
+      p{
         text-align: center;
         margin-bottom: 20px;
         margin-right: 10px;
-      }
-      #play-btn{
-        cursor: pointer;
-        padding: 5px;
-        margin-bottom: 20px
+        font-family: AvenirBlack;
       }
     }
     .progress-wrapper{
@@ -316,6 +317,7 @@ body{
     }
   }
   #mover {
+    position: relative;
     width: 100%;
     height: 40px;
   }

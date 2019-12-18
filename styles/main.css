@@ -160,17 +160,21 @@ body {
     max-width: 100%;
     height: auto;
     z-index: 1; }
-  #player #change-view-wrapper {
-    position: fixed;
+  #player #buttons {
+    position: absolute;
+    bottom: 130px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row; }
+  #player #change-view-wrapper, #player #play-btn {
     z-index: 5;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 100%;
     padding: 15px;
-    left: 50%;
-    margin-left: -17px;
-    bottom: 130px;
     cursor: pointer; }
-    #player #change-view-wrapper img {
+    #player #change-view-wrapper img, #player #play-btn img {
       width: 30px; }
   #player #rewind-modal {
     width: 100%;
@@ -209,14 +213,11 @@ body {
     #player nav span {
       display: flex;
       justify-content: center; }
-      #player nav span h3 {
+      #player nav span p {
         text-align: center;
         margin-bottom: 20px;
-        margin-right: 10px; }
-      #player nav span #play-btn {
-        cursor: pointer;
-        padding: 5px;
-        margin-bottom: 20px; }
+        margin-right: 10px;
+        font-family: AvenirBlack; }
     #player nav .progress-wrapper {
       display: flex;
       justify-content: flex-start; }
@@ -262,6 +263,7 @@ body {
           width: 30%;
           left: 70%; }
   #player #mover {
+    position: relative;
     width: 100%;
     height: 40px; }
 

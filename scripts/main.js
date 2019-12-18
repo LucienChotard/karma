@@ -3,6 +3,7 @@ const startBtn = document.querySelector('#start-btn')
 const wave = document.querySelector('#wave')
 const backWave = document.querySelector('#back-wave')
 const player = document.querySelector('#player')
+const playWrapper = document.querySelector('#play-wrapper')
 const playBtn = document.querySelector('#play-btn')
 const buttons = document.querySelector('#buttons')
 const changeViewWrapper = document.querySelector('#change-view-wrapper')
@@ -258,7 +259,7 @@ startBtn.addEventListener('click',(e)=>{
   }, 2500);
 })
 
-playBtn.addEventListener('click',(e)=>{
+playWrapper.addEventListener('click',(e)=>{
   if(vidCity.video.paused){
     playAll()
   }

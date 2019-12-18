@@ -105,7 +105,7 @@ body {
   #player #side-info-modal-wrapper {
     width: 100%;
     position: fixed;
-    z-index: 9;
+    z-index: 11;
     display: flex;
     justify-content: center;
     top: 20%; }
@@ -151,7 +151,7 @@ body {
     padding: 20px;
     position: fixed;
     backdrop-filter: blur(7px);
-    z-index: 11; }
+    z-index: 10; }
     #player .modal-info h4 {
       font-family: AvenirHeavyOblique;
       text-transform: uppercase; }

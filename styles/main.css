@@ -265,7 +265,8 @@ body {
   #player #buttons > img {
     width: 60px;
     height: 60px;
-    margin-left: 20px; }
+    margin-left: 20px;
+    cursor: pointer; }
   #player #play-wrapper {
     cursor: pointer;
     margin-right: 20px;

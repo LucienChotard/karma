@@ -202,6 +202,11 @@ body {
   #player .out h2 {
     text-align: center;
     font-family: AvenirBlack; }
+  #player .out #aside-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px; }
   #player .info img {
     width: 50px;
     height: 50px;
@@ -316,7 +321,18 @@ body {
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
           background: var(--c, white);
           animation: move 5s linear 0 infinite;
-          border-radius: 15px; }
+          border-radius: 15px;
+          z-index: 15; }
+        #player nav .progress-wrapper .seekbar-wrapper .rewind-highlight {
+          left: 86.5%;
+          top: 8px;
+          height: 12px;
+          z-index: 2;
+          position: absolute;
+          width: 13.5%;
+          background: #00ff4e47;
+          border-radius: 15px;
+          pointer-events: none; }
         #player nav .progress-wrapper .seekbar-wrapper .progress-point {
           position: absolute;
           height: 5px;
@@ -326,7 +342,9 @@ body {
           z-index: 14; }
         #player nav .progress-wrapper .seekbar-wrapper .vid-hide {
           position: absolute;
-          height: 20px;
+          border-radius: 15px;
+          height: 12px;
+          top: 8px;
           background: #13131347;
           pointer-events: none; }
         #player nav .progress-wrapper .seekbar-wrapper #city-hide {

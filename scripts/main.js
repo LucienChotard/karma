@@ -12,6 +12,7 @@ const rewindModal = document.querySelector('#rewind-modal')
 const rewindBtn = document.querySelector('#rewind-btn')
 const $menuButton = document.querySelector('.js-menu-button')
 const $menu = document.querySelector('.js-menu')
+const asideClose = document.querySelector('#aside-close')
 let curVideo = 0
 let callOnce = true
 let isRewindModalOpened = false
@@ -303,6 +304,9 @@ function seekBarRefresh(){
     rewindModal.classList.add("fade-in")
     buttons.classList.add("fade-out")
   }
+  if(vidCity.video.currentTime == vidCity.video.duration){
+    window.location.href = "https://lucienchotard.github.io/karma/share.html";
+  }
 }
 
 rewindBtn.addEventListener('click',(e)=>{
@@ -333,4 +337,20 @@ function seek(event) {
 $menuButton.addEventListener ('click', () =>
 {
     $menu.classList.toggle('is-active')
+    if($menu.classList.contains('is-active')){
+      pauseAll()
+    }
+    else{
+      playAll()
+    }
+})
+asideClose.addEventListener ('click', () =>
+{
+    $menu.classList.toggle('is-active')
+    if($menu.classList.contains('is-active')){
+      pauseAll()
+    }
+    else{
+      playAll()
+    }
 })

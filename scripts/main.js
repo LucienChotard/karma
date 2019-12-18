@@ -71,7 +71,7 @@ class Info{
     setTimeout((e)=>{this.infoClear()},this.duration)
   }
   check(){
-    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.duration && this.callOnce && curVideo == this.targetVideo.getAttribute('data-vidid') ){
+    if(this.targetVideo.currentTime > this.keyFrame && this.targetVideo.currentTime < this.keyFrame+5 && this.callOnce && curVideo == this.targetVideo.getAttribute('data-vidid') ){
       this.callOnce=false
       this.infoSet()
     }

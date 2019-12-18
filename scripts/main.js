@@ -381,14 +381,14 @@ function seekBarRefresh(){
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidOcean.video.currentTime)
 
-  if(vidCity.video.currentTime > 113 && callOnce){
+  if(vidCity.video.currentTime > 114 && callOnce){
     if(curVideo==1){
       changeView()
     }
     isRewindModalOpened = true
     callOnce = false
-    vidCity.video.currentTime = 113
-    vidOcean.video.currentTime = 113
+    vidCity.video.currentTime = 114
+    vidOcean.video.currentTime = 114
     vidCity.video.classList.add('blur')
     pauseAll()
     rewindModal.style.display="block"

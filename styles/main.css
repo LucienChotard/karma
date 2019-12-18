@@ -289,7 +289,8 @@ body {
     padding: 15px;
     cursor: pointer; }
     #player #change-view-wrapper img {
-      width: 30px; }
+      width: 30px;
+      cursor: pointer; }
   #player #rewind-modal {
     width: 100%;
     position: fixed;

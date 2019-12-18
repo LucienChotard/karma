@@ -17,6 +17,93 @@ let curVideo = 0
 let callOnce = true
 let isRewindModalOpened = false
 
+class sideInfo{
+  constructor(id,icon,img,title,content){
+    this.id = id
+    this.icon = icon
+    this.img = img
+    this.title = title
+    this.content = content
+    this.btn = document.createElement('img')
+    this.modalWrapper = document.querySelector('#side-info-modal-wrapper')
+    this.modal = document.querySelector('#side-info-modal')
+    this.modalTitle = document.querySelector('#side-info-title')
+    this.modalContent = document.querySelector('#side-info-text')
+    this.modalImage = document.querySelector('#side-info-img')
+    this.closeBtn= document.querySelector('#side-info-modal-close')
+    this.isModalOpened = false
+  }
+  modalSetContent(){
+    this.modalWrapper.setAttribute('data-id',this.id)
+    this.modalTitle.innerHTML=this.title
+    this.modalContent.innerHTML=this.content
+    this.modalImage.setAttribute('src',this.img)
+  }
+  modalEnable(){
+    pauseAll()
+    if (this.modalWrapper.getAttribute('data-id') == this.id && this.isModalOpened) {
+      this.modalDisable()
+      playAll()
+    }
+    else if(this.isModalOpened){
+      this.modalSetContent()
+    }
+    else{
+      this.isModalOpened=true
+      this.modalWrapper.style.display="flex"
+      this.modal.classList.remove('fade-out')
+      this.modal.classList.add('fade-in')
+      this.modalSetContent()
+    }
+  }
+  modalDisable(){
+    this.isModalOpened=false
+    this.modal.classList.remove('fade-in')
+    this.modal.classList.add('fade-out')
+    playAll()
+    setTimeout((e)=>{
+      this.modalWrapper.style.display="none"
+    },1000)
+  }
+  init(){
+    this.modalWrapper.style.display="none"
+    this.btn.setAttribute("src",this.icon)
+    buttons.append(this.btn)
+    this.btn.addEventListener("click",(e)=>{
+      this.modalEnable()
+    })
+    this.closeBtn.addEventListener("click",(e)=>{
+      this.modalDisable()
+    })
+  }
+}
+let sideInfoArray=[
+  new sideInfo(
+    0,
+    "images/button-cigaret.png",
+    "images/megot.png",
+    "les cigarettes",
+    "L’écotoxicité des cigarettes été prouvée pour des espèces aquatiques. L’un des toxiques en cause est la nicotine. Relarguée par les mégots, elle est retrouvée en quantité significative dans les eaux urbaines. Quant aux filtres des cigarettes, elles sont constitués de minuscules particules de plastique qui mettent des décennies ou plus à se décomposer. Il s’agit donc d’un déchet toxique qui est difficile à collecter en raison de sa dispersion, et difficile à valoriser en raison de sa toxicité et du peu de valeur de sa matière. Le vent ou les systèmes de nettoyage par soufflage ou le nettoyage à l’eau sous pression emportent ou dispersent les microparticules de plastique issues de ceux des mégots qui ont déjà été déchiquetés par les véhicules et les piétons."
+  ),
+  new sideInfo(
+    1,
+    "images/button-plastic.png",
+    "images/bag.png",
+    "sacs plastiques",
+    "Les sacs plastiques sont une source de pollution considérable, durant tout leur cycle de vie. Tout d’abord, leur production consomme des produits pétroliers, de l’eau, de l’énergie, et émet des gaz à effet de serre responsables du réchauffement climatique. À la fin de vie de leur vie, les sacs plastiques sont particulièrement nocive pour l’environnement. Selon l’organisme Éco-emballage, les sacs plastiques seraient trop légers pour être recyclés, et leur recyclage consommerait plus de ressources qu’il n’en restituerait. Ils se retrouvent par centaines de millions dans la nature, et sont responsables de la destruction de la biodiversité : 122 millions de sacs plastiques juchent les 5 000 kilomètres de côtes du littoral français, et tuent des milliers d’animaux marins chaque année. Ils étouffent et étranglent de nombreuses espèces marines, comme les tortues, les dauphins, les thons, qui les ingèrent car ils les confondent avec des proies."
+  ),
+  new sideInfo(
+    2,
+    "images/button-household.png",
+    "images/produit.png",
+    "produits ménagers",
+    "Selon le magazine 60 Millions de consommateurs, mieux vaut se passer de produits ménagers industriels, composés de « substances toxiques », et favoriser des produits « faits maison » Les produits ménagers émettent des composés organiques volatiles, appelés COV, qui peuvent provoquer des maladies respiratoires. Le principal risque dans la maison est la fumée de cigarette. Mais après le tabac vient ensuite l’utilisation de produits ménagers industriels, notamment ceux en spray, qui émettent beaucoup de COV et représentent donc un danger pour la santé. Vous pouvez retrouver sur le site de l’Ademe un guide en ligne de recettes pour faire soi-même ses produits ménagers : du bicarbonate de soude et du savon noir, deux bons dégraissants, du vinaigre blanc pour nettoyer les surfaces et du citron, pour désodoriser, par exemple…"
+  )
+]
+for(let i=0 ; i<sideInfoArray.length; i++){
+  sideInfoArray[i].init()
+}
+
 class Info{
   constructor(id,keyFrame,targetVideo,content,posX,posY,duration)
   {
@@ -271,19 +358,23 @@ playWrapper.addEventListener('click',(e)=>{
 })
 
 function playAll(){
-  for(i of globalVid){
-    i.video.play()
+  if(vidCity.video.paused){
+    for(i of globalVid){
+      i.video.play()
+    }
+    playBtn.classList.toggle("icofont-ui-play")
+    playBtn.classList.toggle("icofont-ui-pause")
   }
-  playBtn.classList.toggle("icofont-ui-play")
-  playBtn.classList.toggle("icofont-ui-pause")
 }
 
 function pauseAll(){
-  for(i of globalVid){
-    i.video.pause()
+  if(!vidCity.video.paused){
+    for(i of globalVid){
+      i.video.pause()
+    }
+    playBtn.classList.toggle("icofont-ui-pause")
+    playBtn.classList.toggle("icofont-ui-play")
   }
-  playBtn.classList.toggle("icofont-ui-pause")
-  playBtn.classList.toggle("icofont-ui-play")
 }
 
 function seekBarRefresh(){

@@ -102,6 +102,36 @@ body {
 
 #player {
   display: none; }
+  #player #side-info-modal-wrapper {
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    top: 20%; }
+    #player #side-info-modal-wrapper #side-info-modal {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(7px);
+      display: flex;
+      width: 70%; }
+      #player #side-info-modal-wrapper #side-info-modal #side-info-img {
+        width: 40%; }
+      #player #side-info-modal-wrapper #side-info-modal #side-info-content {
+        color: white;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        #player #side-info-modal-wrapper #side-info-modal #side-info-content #side-info-title {
+          font-family: AvenirBlack;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          width: 100%; }
+        #player #side-info-modal-wrapper #side-info-modal #side-info-content #side-info-text {
+          font-family: AvenirBook; }
+        #player #side-info-modal-wrapper #side-info-modal #side-info-content #side-info-modal-close {
+          margin-top: 20px;
+          font-size: 24px; }
   #player .info-point {
     display: none;
     position: fixed;
@@ -232,6 +262,10 @@ body {
     justify-content: center;
     position: absolute;
     bottom: 140px; }
+  #player #buttons > img {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px; }
   #player #play-wrapper {
     cursor: pointer;
     margin-right: 20px;
@@ -365,12 +399,12 @@ body {
 
 .fade-out {
   animation-name: fadeOut;
-  animation-duration: 1.2s;
+  animation-duration: 0.6s;
   animation-fill-mode: both; }
 
 .fade-in {
   animation-name: fadeIn;
-  animation-duration: 1.2s;
+  animation-duration: 0.6s;
   animation-fill-mode: both; }
 
 .blur {

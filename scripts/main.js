@@ -12,8 +12,9 @@ let curVideo = 0
 let callOnce = true
 
 class Info{
-  constructor(keyFrame,targetVideo,content,posX,posY,duration)
+  constructor(id,keyFrame,targetVideo,content,posX,posY,duration)
   {
+    this.id = id
     this.keyFrame = keyFrame
     this.targetVideo = targetVideo.video
     this.targetProgress = targetVideo.progress
@@ -58,6 +59,7 @@ class Info{
     this.infoPoint.classList.add('fade-out')
     this.infoPoint.removeEventListener("click",(e)=>{this.modalOpen})
     setTimeout((e)=>{this.infoPoint.style.display="none"},1000)
+    progressPointClear(this.id)
   }
   infoSet(){
     this.infoPoint.classList.add('info-point')
@@ -95,6 +97,7 @@ changeViewWrapper.addEventListener('click',changeView)
 
 let factArray=[
   new Info(
+    0,
     8,
     vidCity,
     "<h4>Un mégot c'est 500 litres d'eau pollués.</h4><br> En France, le total des mégots jetés représente 25 0000 tonnes par an, soit plus de 2x le poids de la Tour Eiffel.",
@@ -103,6 +106,7 @@ let factArray=[
     9000
   ),
   new Info(
+    1,
     30,
     vidCity,
     "<h4>La pollution</h4><br> C'est la dégradation d'un écosystème par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de celui-ci.",
@@ -111,6 +115,7 @@ let factArray=[
     9000
   ),
   new Info(
+    2,
     32,
     vidOcean,
     "<h4>500 zones mortes</h4><br> recouvrant plus de 245 000 km2 dans le monde entier, elles équivalent à la surface du Royaume-Uni.",
@@ -119,6 +124,7 @@ let factArray=[
     9000
   ),
   new Info(
+    3,
     53,
     vidOcean,
     "<h4>Un mégot jeté dans la rue</h4><br> C'est 96h pour tuer un poisson et 10 ans pour qu’il se biodégrade.",
@@ -127,6 +133,7 @@ let factArray=[
     9000
   ),
   new Info(
+    4,
     61,
     vidCity,
     "<h4>12%</h4><br> C'est le nombre d'habitants qui prend sa voiture pour aller travailler. Pourtant à Paris, la moitié de l’espace public de circulation est réservée à l’automobile…",
@@ -135,6 +142,7 @@ let factArray=[
     9000
   ),
   new Info(
+    5,
     75,
     vidOcean,
     "<h4>29%</h4><br> C'est le pourcentage des ressources marines surexploitées",
@@ -143,6 +151,7 @@ let factArray=[
     9000
   ),
   new Info(
+    6,
     86,
     vidOcean,
     "<h4>La lente agonie des poissons pêchés</h4><br>La durée de l’agonie peut se prolonger de 25 minutes à 4 heures : à titre de comparaison, elle peut aller jusqu’à 14 minutes pour un bovin.",
@@ -151,6 +160,7 @@ let factArray=[
     9000
   ),
   new Info(
+    7,
     97,
     vidOcean,
     "<h4>6,5 millions de tonnes</h4><br> C'est le nombre d’ordures qui est rejeté dans l’Océan mondial chaque année.",
@@ -159,6 +169,7 @@ let factArray=[
     9000
   ),
   new Info(
+    8,
     119,
     vidCity,
     "<h4>Bravo !</h4><br> Vous avez sauvé un poisson.",
@@ -167,6 +178,7 @@ let factArray=[
     9000
   ),
   new Info(
+    9,
     120,
     vidOcean,
     "<h4>Sans plus attendre...</h4><br>Adoptez le bon geste, vous ferez la différence.",
@@ -186,11 +198,17 @@ function progressPointSet(){
     let percent = (factArray[i].keyFrame / factArray[i].targetVideo.duration)*100+"%"
     let progressPoint = document.createElement('div')
     progressPoint.classList.add('progress-point')
+    progressPoint.setAttribute('data-factid',i)
     progressPoint.style.left=percent
     progressPoint.style.width="5px"
     factArray[i].targetProgress.after(progressPoint)
     console.log(progressPoint)
   }
+}
+
+function progressPointClear(id){
+  let target = document.querySelector(".progress-point[data-factid='"+id+"']")
+  target.classList.add('fade-out')
 }
 
 function changeView(){
@@ -268,6 +286,7 @@ function pauseAll(){
 function seekBarRefresh(){
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidOcean.video.currentTime)
+
 
   if(vidCity.video.currentTime > 113 && callOnce){
       callOnce = false

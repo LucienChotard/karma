@@ -10,6 +10,8 @@ const changeViewWrapper = document.querySelector('#change-view-wrapper')
 const changeViewBtn = document.querySelector('#change-view')
 const rewindModal = document.querySelector('#rewind-modal')
 const rewindBtn = document.querySelector('#rewind-btn')
+const $menuButton = document.querySelector('.js-menu-button')
+const $menu = document.querySelector('.js-menu')
 let curVideo = 0
 let callOnce = true
 let isRewindModalOpened = false
@@ -328,3 +330,7 @@ function seek(event) {
     changeView()
   }
 }
+$menuButton.addEventListener ('click', () =>
+{
+    $menu.classList.toggle('is-active')
+})

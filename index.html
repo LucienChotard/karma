@@ -39,7 +39,7 @@
       <nav>
         <span>
           <p>TIMELINE</p>
-          <!--<div id="play-btn" class="icofont-ui-play"></div>-->
+          <i class="icofont-info-circle js-menu-button"></i>
         </span>
         <div class="progress-wrapper">
           <h4>VILLE</h4>
@@ -66,15 +66,46 @@
         <img id="change-view" src="images/wave.svg" alt="Change Camera">
       </div>
     </div>
-
     <div id="rewind-modal">
       <h2>Et si vous pouviez changer le cours des choses ?</h2>
       <a href="#" id="rewind-btn">REWIND <i class="icofont-rewind"></i></a>
     </div>
+    <aside class="menu js-menu">
+      <div class="out">
+        <span>
+          <h2>HELP</h2>
+          <i class="icofont-close"></i>
+        </span>
+        <div class="info">
+          <section>
+            <img src="images/button-wave.png" alt="wave">
+            <p>Clique ici pour voir ce qui se passe dans l’océan ou dans la ville. </p>
+          </section>
+          <section>
+            <img src="images/button-info.png" alt="info">
+            <p>Ici, tu trouveras des infos plus détaillées sur la pollution marine…<br> N’hésite pas, la vidéo t’attendra.</p>
+          </section>
+          <section>
+            <img src="images/button-pop.png" alt="info">
+            <p>Clique dessus pour pouvoir raconter des anecdotes intéressantes à tes amis.</p>
+          </section>
+          <h2>Timeline</h2>
+          <section>
+            <div class="pop"></div>
+            <p>Cette petite pastille bleue t’aidera à savoir où se cache les pop ups des vidéos.</p>
+          </section>
+          <section>
+            <div class="grey"></div>
+            <p>Les zones grises que tu vois sont des rediffusions, mon petit doigt me dit que tu devrais switcher de caméra…</p>
+          </section>
+        </div>
+      </div>
+    </aside>
 
     <video id="vid-city" data-vidid="0" src="videos/city.mp4" ></video>
     <video id="vid-ocean" data-vidid="1" src="videos/ocean.mp4"></video>
   </section>
+
 
   <script type="text/javascript" src="scripts/main.js">
 

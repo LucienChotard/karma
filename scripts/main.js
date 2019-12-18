@@ -204,7 +204,6 @@ function progressPointSet(){
     progressPoint.style.left=percent
     progressPoint.style.width="5px"
     factArray[i].targetProgress.after(progressPoint)
-    console.log(progressPoint)
   }
 }
 
@@ -235,7 +234,6 @@ function changeView(){
     curVideo = 1
   }
   vidCity.video.classList.toggle('none')
-  callOnce = true
 }
 
 startBtn.addEventListener('click',(e)=>{
@@ -289,20 +287,19 @@ function seekBarRefresh(){
   vidCity.progress.setAttribute("value",vidCity.video.currentTime)
   vidOcean.progress.setAttribute("value",vidOcean.video.currentTime)
 
-
   if(vidCity.video.currentTime > 113 && callOnce){
-      if(vidCity.video.style.display=="none"){
-        changeView()
-      }
-      isRewindModalOpened = true
-      callOnce = false
-      vidCity.video.currentTime = 113
-      vidOcean.video.currentTime = 113
-      vidCity.video.classList.add('blur')
-      pauseAll()
-      rewindModal.style.display="block"
-      rewindModal.classList.add("fade-in")
-      buttons.classList.add("fade-out")
+    if(curVideo==1){
+      changeView()
+    }
+    isRewindModalOpened = true
+    callOnce = false
+    vidCity.video.currentTime = 113
+    vidOcean.video.currentTime = 113
+    vidCity.video.classList.add('blur')
+    pauseAll()
+    rewindModal.style.display="block"
+    rewindModal.classList.add("fade-in")
+    buttons.classList.add("fade-out")
   }
 }
 
@@ -323,16 +320,11 @@ for(i of globalVid){
 }
 
 function seek(event) {
-  if(isRewindModalOpened){
-
-  }
-  else{
-    var percent = event.offsetX / this.offsetWidth;
-    vidCity.video.currentTime = percent * vidCity.video.duration
-    vidOcean.video.currentTime = percent * vidOcean.video.duration
-    vidCity.progress.value = percent / 100;
-    if(curVideo != event.target.getAttribute('data-vidid')){
-      changeView()
-    }  
+  var percent = event.offsetX / this.offsetWidth;
+  vidCity.video.currentTime = percent * vidCity.video.duration
+  vidOcean.video.currentTime = percent * vidOcean.video.duration
+  vidCity.progress.value = percent / 100;
+  if(curVideo != event.target.getAttribute('data-vidid')){
+    changeView()
   }
 }

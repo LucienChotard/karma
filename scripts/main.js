@@ -103,7 +103,7 @@ let factArray=[
     9000
   ),
   new Info(
-    22,
+    30,
     vidCity,
     "<h4>La pollution</h4><br> C'est la dégradation d'un écosystème par l'introduction, généralement humaine, d'entités, ou de radiations altérant le fonctionnement de celui-ci.",
     "40%",

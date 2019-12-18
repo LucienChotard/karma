@@ -144,6 +144,7 @@ body{
     background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     position: fixed;
+    backdrop-filter: blur(7px);
     z-index: 11;
     h4{
       font-family: AvenirHeavyOblique;
@@ -200,7 +201,7 @@ body{
     padding: 15px;
     left:50%;
     margin-left: -17px;
-    bottom: 120px;
+    bottom: 130px;
     cursor: pointer;
     img{
       width:30px;
@@ -242,8 +243,8 @@ body{
     bottom: 0;
     padding: 10px;
 
-    transform: translateY(60%);
-    transition: transform 1s cubic-bezier(0.75, 0, 0.25, 1);
+    transform: translateY(63%);
+    transition: transform 0.7s cubic-bezier(0.75, 0, 0.25, 1);
     span{
       display: flex;
       justify-content: center;

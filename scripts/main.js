@@ -289,6 +289,9 @@ function seekBarRefresh(){
 
 
   if(vidCity.video.currentTime > 113 && callOnce){
+    if(curVideo=1){
+      changeView()
+    }
       callOnce = false
       vidCity.video.currentTime = 113
       vidOcean.video.currentTime = 113

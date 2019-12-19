@@ -239,7 +239,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px; }
+    padding: 20px 75px; }
+  #player .out #aside-close {
+    cursor: pointer; }
   #player .info img {
     width: 50px;
     height: 50px;
@@ -363,7 +365,8 @@ body {
         #player nav .progress-wrapper .seekbar-wrapper progress::-webkit-progress-bar {
           padding: 2px;
           background: white;
-          border-radius: 15px; }
+          border-radius: 15px;
+          cursor: pointer; }
         #player nav .progress-wrapper .seekbar-wrapper progress::-webkit-progress-value {
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
           background: var(--c, white);
@@ -406,6 +409,8 @@ body {
     position: relative;
     width: 100%;
     height: 40px; }
+    #player #mover .js-menu-button {
+      cursor: pointer; }
 
 #mover:hover nav {
   transform: translateY(0px); }

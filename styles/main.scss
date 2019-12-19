@@ -292,7 +292,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
+    padding: 20px 75px;
+  }
+
+  .out #aside-close{
+    cursor: pointer;
   }
 
   .info img {
@@ -442,6 +446,7 @@ body{
           padding: 2px;
           background: white;
           border-radius: 15px;
+          cursor: pointer;
         }
         progress::-webkit-progress-value {
           box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
@@ -495,6 +500,9 @@ body{
     position: relative;
     width: 100%;
     height: 40px;
+    .js-menu-button{
+      cursor: pointer;
+    }
   }
 }
 #mover:hover nav {

@@ -83,7 +83,7 @@ let sideInfoArray=[
     "images/button-cigaret.png",
     "images/megot.png",
     "cigarettes",
-    "L’écotoxicité des cigarettes a été prouvée chez les espèces aquatiques. L’un des toxiques en cause est la nicotine. Relarguée par les mégots, elle est retrouvée en quantité significative dans les eaux urbaines.<br><br> Quant aux filtres des cigarettes, is sont constitués de minuscules particules de plastique qui mettent des décennies ou plus à se décomposer. <br><br>Il s’agit donc d’un déchet toxique qui est difficile à collecter en raison de sa dispersion, et difficile à valoriser en raison de sa toxicité et du peu de valeur de sa matière.<br><br> Le vent ou les systèmes de nettoyage par soufflage ou le nettoyage à l’eau sous pression emportent ou dispersent les microparticules de plastique issues de ceux des mégots qui ont déjà été déchiquetés par les véhicules et les piétons."
+    "L’écotoxicité des cigarettes a été prouvée chez les espèces aquatiques. L’un des toxiques en cause est la nicotine. Relarguée par les mégots, elle est retrouvée en quantité significative dans les eaux urbaines.<br><br> Quant aux filtres des cigarettes, ils sont constitués de minuscules particules de plastique qui mettent des décennies ou plus à se décomposer. <br><br>Il s’agit donc d’un déchet toxique qui est difficile à collecter en raison de sa dispersion, et difficile à valoriser en raison de sa toxicité et du peu de valeur de sa matière.<br><br> Le vent ou les systèmes de nettoyage par soufflage ou le nettoyage à l’eau sous pression emportent ou dispersent les microparticules de plastique issues de ceux des mégots qui ont déjà été déchiquetés par les véhicules et les piétons."
   ),
   new sideInfo(
     1,

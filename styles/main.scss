@@ -141,7 +141,7 @@ body{
       }
       #side-info-content{
         color: white;
-        padding: 40px;
+        padding: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -150,6 +150,7 @@ body{
           text-transform: uppercase;
           margin-bottom: 20px;
           width: 100%;
+          text-align: center;
         }
         #side-info-text{
           font-family: AvenirBook;
@@ -277,14 +278,10 @@ body{
     padding: 20px;
   }
 
-  .info h2 {
-    padding: 0px 400px 0px 40px;
-    font-family: AvenirBlack;
-  }
-
   .out h2 {
     text-align: center;
     font-family: AvenirBlack;
+    padding: 20px 0px;
   }
 
   .out #aside-title{
@@ -302,21 +299,31 @@ body{
 
   div.pop {
     margin: 0px 40px;
-    width: 40px;
+    width: 50px;
     height: 7px;
     border-radius: 30px;
-    background-color: rgb(0, 195, 255);
+    background-color: cyan;
   }
 
   div.grey {
     margin: 0px 40px;
-    width: 40px;
+    width: 70px;
     height: 10px;
+    border-radius: 30px;
     background-color: rgb(167, 167, 167);
+  }
+
+  div.green {
+    margin: 0px 40px;
+    width: 70px;
+    height: 10px;
+    border-radius: 30px;
+    background-color: #89b897;
   }
 
   p {
     margin: 0;
+    line-height: 22px;
   }
   #buttons {
     z-index: 5;
@@ -398,7 +405,7 @@ body{
     bottom: 0;
     padding: 10px;
 
-    transform: translateY(63%);
+    transform: translateY(70%);
     transition: transform 0.7s cubic-bezier(0.75, 0, 0.25, 1);
     span{
       display: flex;

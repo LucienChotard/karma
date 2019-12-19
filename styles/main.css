@@ -118,7 +118,7 @@ body {
         width: 40%; }
       #player #side-info-modal-wrapper #side-info-modal #side-info-content {
         color: white;
-        padding: 40px;
+        padding: 50px;
         display: flex;
         flex-direction: column;
         align-items: center; }
@@ -126,7 +126,8 @@ body {
           font-family: AvenirBlack;
           text-transform: uppercase;
           margin-bottom: 20px;
-          width: 100%; }
+          width: 100%;
+          text-align: center; }
         #player #side-info-modal-wrapper #side-info-modal #side-info-content #side-info-text {
           font-family: AvenirBook; }
         #player #side-info-modal-wrapper #side-info-modal #side-info-content #side-info-modal-close {
@@ -226,12 +227,10 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 20px; }
-  #player .info h2 {
-    padding: 0px 400px 0px 40px;
-    font-family: AvenirBlack; }
   #player .out h2 {
     text-align: center;
-    font-family: AvenirBlack; }
+    font-family: AvenirBlack;
+    padding: 20px 0px; }
   #player .out #aside-title {
     display: flex;
     justify-content: space-between;
@@ -243,17 +242,25 @@ body {
     padding: 0px 40px; }
   #player div.pop {
     margin: 0px 40px;
-    width: 40px;
+    width: 50px;
     height: 7px;
     border-radius: 30px;
-    background-color: #00c3ff; }
+    background-color: cyan; }
   #player div.grey {
     margin: 0px 40px;
-    width: 40px;
+    width: 70px;
     height: 10px;
+    border-radius: 30px;
     background-color: #a7a7a7; }
+  #player div.green {
+    margin: 0px 40px;
+    width: 70px;
+    height: 10px;
+    border-radius: 30px;
+    background-color: #89b897; }
   #player p {
-    margin: 0; }
+    margin: 0;
+    line-height: 22px; }
   #player #buttons {
     z-index: 5;
     display: inline-flex;
@@ -324,7 +331,7 @@ body {
     flex-direction: column;
     bottom: 0;
     padding: 10px;
-    transform: translateY(63%);
+    transform: translateY(70%);
     transition: transform 0.7s cubic-bezier(0.75, 0, 0.25, 1); }
     #player nav span {
       display: flex;

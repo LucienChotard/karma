@@ -63,7 +63,7 @@ class sideInfo{
     playAll()
     setTimeout((e)=>{
       this.modalWrapper.style.display="none"
-    },1000)
+    },600)
   }
   init(){
     this.modalWrapper.style.display="none"
@@ -127,7 +127,7 @@ class Info{
   modalClear(){
     this.modal.classList.remove('fade-in')
     this.modal.classList.add('fade-out')
-    setTimeout((e)=>{this.modal.style.display="none"},1000)
+    setTimeout((e)=>{this.modal.style.display="none"},600)
   }
   modalOpen(){
     this.infoClear()
@@ -151,7 +151,7 @@ class Info{
     this.infoPoint.classList.remove('fade-in')
     this.infoPoint.classList.add('fade-out')
     this.infoPoint.removeEventListener("click",(e)=>{this.modalOpen})
-    setTimeout((e)=>{this.infoPoint.style.display="none"},1000)
+    setTimeout((e)=>{this.infoPoint.style.display="none"},600)
     progressPointClear(this.id)
   }
   infoSet(){
@@ -331,9 +331,7 @@ startBtn.addEventListener('click',(e)=>{
   backWave.classList.remove('back-wave-move')
   wave.classList.add('wave-slide-out')
   backWave.classList.add('wave-slide-out')
-  setTimeout(function(){
-    landing.classList.add('fade-out')
-  }, 500);
+  landing.classList.add('fade-out')
   setTimeout(function(){
     playAll()
     factsInit()
@@ -345,7 +343,7 @@ startBtn.addEventListener('click',(e)=>{
     vidOcean.video.muted=true
     vidOcean.video.style.display="none"
     vidCity.progress.style.setProperty("--c", "#145574")
-  }, 2500);
+  }, 500);
 })
 
 playWrapper.addEventListener('click',(e)=>{

@@ -45,7 +45,7 @@ body{
   }
   .wave-slide-out{
     animation-name: slideOut !important;
-    animation-duration: 3s !important;
+    animation-duration: 1.5s !important;
     animation-fill-mode: both;
   }
   .cloud{
@@ -130,7 +130,7 @@ body{
     z-index: 11;
     display: flex;
     justify-content: center;
-    top:20%;
+    top:10%;
     #side-info-modal{
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(7px);
@@ -145,6 +145,7 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
         #side-info-title{
           font-family: AvenirBlack;
           text-transform: uppercase;
@@ -158,6 +159,8 @@ body{
         #side-info-modal-close{
           margin-top: 20px;
           font-size: 24px;
+          margin-top: auto;
+          justify-self: flex-end;
         }
       }
     }
@@ -171,6 +174,7 @@ body{
     border-radius: 100%;
     z-index: 10;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    cursor: pointer;
   }
   .pulse{
     animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);

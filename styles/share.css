@@ -1,10 +1,13 @@
 body{
+  width: 100vw;
+  height: 100vh;
   margin:0;
   padding:0;
   font-family: 'Avenir',sans-serif;
   font-size: 20px;
   color: white;
   background-color: #202636;
+  background: linear-gradient(156deg, rgba(32,38,54,1) 0%, rgba(32,38,54,1) 50%, rgba(104,108,117,1) 100%);
 }
 
 /**
